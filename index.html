@@ -238,6 +238,27 @@
     .brand{padding:7px 12px;}
     .brand img.logo-centrix{height:28px;}
   }
+
+  /* phones: stack the investment table so every KWD figure is visible */
+  @media (max-width:560px){
+    .table-scroll{overflow:visible;box-shadow:var(--shadow);border-radius:var(--radius);}
+    .table-scroll table{min-width:0;box-shadow:none;}
+    table thead{display:none;}
+    table, table tbody, table tfoot{display:block;width:100%;}
+    table tr{
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+      gap:4px 12px;padding:14px 16px;border-top:1px solid var(--line);background:var(--paper);
+    }
+    table tbody tr:nth-child(even){background:#fcfaf3;}
+    table td{display:block;border:0!important;padding:0;font-size:14px;}
+    table td:first-child{flex:1 1 100%;font-weight:600;margin-bottom:6px;}
+    table td:first-child small{font-weight:400;margin-top:2px;}
+    table td .pill{margin:0;}
+    table td.r{flex:0 0 auto;text-align:right;white-space:normal;font-weight:700;color:var(--petrol);}
+    table tfoot tr{background:var(--mint-soft);border-top:2px solid var(--petrol);}
+    table tfoot td:first-child{flex:1 1 auto;margin-bottom:0;}
+    table tfoot td.r{color:var(--petrol);}
+  }
   @media print{
     body{background:#fff;}
     .hero,.arch,.cta,.plan,.card,table{box-shadow:none;}
