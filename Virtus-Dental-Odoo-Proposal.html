@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="googlebot" content="noindex, nofollow" />
+<meta name="description" content="Confidential solution proposal — Odoo V19 for Virtus Dental, prepared by Centrix Plus." />
+<title>Virtus Dental — Odoo V19 Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --petrol:#0c3b3b;
+    --petrol-deep:#082a2a;
+    --petrol-soft:#13514f;
+    --mint:#cfe8e2;
+    --mint-soft:#e9f3ef;
+    --cream:#f7f4ec;
+    --paper:#fffdf8;
+    --ink:#16302e;
+    --muted:#5c726f;
+    --gold:#c39a4a;
+    --gold-soft:#e7d4a6;
+    --line:#dfe5e0;
+    --good:#1f7a5a;
+    --shadow:0 18px 50px -24px rgba(8,42,42,.45);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Archivo',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.01em;}
+  p{color:var(--ink);}
+  .muted{color:var(--muted);}
+  .accent{color:var(--gold);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(900px 420px at 85% -10%, rgba(195,154,74,.20), transparent 60%),
+      radial-gradient(700px 500px at -10% 110%, rgba(207,232,226,.18), transparent 55%),
+      linear-gradient(160deg,var(--petrol-deep),var(--petrol) 60%,var(--petrol-soft));
+    color:#eaf3ef;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:22px 22px;opacity:.6;pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:2;padding-top:64px;padding-bottom:70px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .brand .mark{
+    width:38px;height:38px;border-radius:10px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+    color:var(--petrol-deep);display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:700;font-size:20px;
+  }
+  .tag{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);}
+  .hero h1{font-size:clamp(38px,6vw,68px);margin:28px 0 14px;color:#fff;}
+  .hero h1 em{font-style:italic;color:var(--gold-soft);}
+  .lede{font-size:clamp(16px,2.2vw,20px);max-width:60ch;color:#d6e6e0;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+  .chip{
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+    padding:10px 16px;border-radius:999px;font-size:13px;color:#e8f2ee;
+    backdrop-filter:blur(4px);
+  }
+  .chip b{color:#fff;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:58px 0;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+    font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold);display:inline-block;}
+  h2.sec{font-size:clamp(26px,4vw,40px);margin-bottom:8px;}
+  .sec-sub{color:var(--muted);max-width:62ch;margin-bottom:30px;font-size:16px;}
+
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;box-shadow:var(--shadow);
+  }
+  .grid{display:grid;gap:18px;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+
+  .feature h4{font-size:18px;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+  .dot{width:9px;height:9px;border-radius:3px;background:var(--gold);display:inline-block;transform:rotate(45deg);}
+  .feature p{font-size:14.5px;color:var(--muted);}
+
+  /* problem/understanding list */
+  .need{display:flex;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line);}
+  .need:last-child{border-bottom:0;}
+  .need .ico{
+    flex:0 0 42px;height:42px;border-radius:11px;background:var(--mint-soft);
+    color:var(--petrol);display:grid;place-items:center;font-weight:700;font-family:'Fraunces',serif;
+    border:1px solid var(--mint);
+  }
+  .need b{display:block;font-size:15.5px;}
+  .need span{font-size:14px;color:var(--muted);}
+
+  /* ---------- ARCHITECTURE DIAGRAM ---------- */
+  .arch{background:var(--petrol-deep);color:#e9f3ef;border-radius:22px;padding:34px;position:relative;overflow:hidden;}
+  .arch::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px;opacity:.5;}
+  .arch h3{color:#fff;font-size:22px;position:relative;z-index:2;}
+  .arch .sub{color:#bcd3cc;font-size:14px;margin-bottom:26px;position:relative;z-index:2;}
+  .stack{position:relative;z-index:2;display:grid;grid-template-columns:1fr 64px 1fr;align-items:stretch;gap:0;}
+  .vm{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:20px;
+  }
+  .vm .vm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .vm .vm-head .name{font-family:'Fraunces',serif;font-size:18px;color:#fff;}
+  .badge{font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;font-weight:700;}
+  .badge.free{background:rgba(207,232,226,.18);color:#cfe8e2;border:1px solid rgba(207,232,226,.4);}
+  .badge.ent{background:rgba(195,154,74,.2);color:var(--gold-soft);border:1px solid rgba(195,154,74,.5);}
+  .modlist{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .modlist li{font-size:13.5px;color:#dce9e4;display:flex;align-items:center;gap:9px;}
+  .modlist li::before{content:"";width:7px;height:7px;background:var(--gold);transform:rotate(45deg);display:inline-block;flex:0 0 auto;}
+  .vm .users{margin-top:14px;font-size:12.5px;color:#9fbab3;border-top:1px solid rgba(255,255,255,.12);padding-top:12px;}
+  .vm .users b{color:#fff;}
+  .sync{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
+  .sync .arrow{font-size:24px;color:var(--gold);line-height:1;}
+  .sync .lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#bcd3cc;writing-mode:vertical-rl;text-orientation:mixed;}
+  .one-view{
+    position:relative;z-index:2;margin-top:22px;background:linear-gradient(120deg,rgba(195,154,74,.18),rgba(207,232,226,.1));
+    border:1px solid rgba(195,154,74,.4);border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:14px;
+  }
+  .one-view .ico{width:40px;height:40px;border-radius:10px;background:var(--gold);color:var(--petrol-deep);display:grid;place-items:center;font-size:20px;flex:0 0 auto;}
+  .one-view b{color:#fff;}
+  .one-view p{color:#d6e6e0;font-size:13.5px;}
+
+  /* ---------- COMPARISON ---------- */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .plan{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:0;overflow:hidden;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;}
+  .plan.reco{border:2px solid var(--gold);}
+  .plan .ribbon{position:absolute;top:18px;right:-38px;transform:rotate(45deg);background:var(--gold);color:var(--petrol-deep);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 44px;}
+  .plan-head{padding:24px 24px 20px;border-bottom:1px solid var(--line);}
+  .plan.reco .plan-head{background:linear-gradient(160deg,var(--mint-soft),var(--paper));}
+  .plan-head .opt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+  .plan-head h3{font-size:24px;margin:6px 0 4px;}
+  .plan-head .who{font-size:14px;color:var(--muted);}
+  .price{padding:20px 24px;border-bottom:1px solid var(--line);}
+  .price .big{font-family:'Fraunces',serif;font-size:30px;color:var(--petrol);}
+  .price .per{font-size:13px;color:var(--muted);}
+  .price .alt{font-size:12.5px;color:var(--muted);margin-top:4px;}
+  .plan ul{list-style:none;padding:18px 24px;display:flex;flex-direction:column;gap:11px;flex:1;}
+  .plan ul li{font-size:14px;display:flex;gap:10px;align-items:flex-start;}
+  .plan ul li .ck{color:var(--good);font-weight:700;flex:0 0 auto;}
+  .plan ul li .no{color:#b34a4a;font-weight:700;flex:0 0 auto;}
+  .plan ul li.dim{color:var(--muted);}
+  .plan-foot{padding:16px 24px 24px;}
+  .verdict{font-size:13px;color:var(--muted);background:var(--cream);border-radius:10px;padding:12px 14px;}
+  .plan.reco .verdict{background:var(--mint-soft);color:var(--petrol);}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;margin-top:10px;}
+  .phase{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line);}
+  .phase:first-child{border-top:0;}
+  .phase .when{font-family:'Fraunces',serif;color:var(--petrol);font-size:17px;}
+  .phase .when span{display:block;font-family:'Archivo';font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:3px;}
+  .phase .what b{font-size:15.5px;}
+  .phase .what p{font-size:14px;color:var(--muted);}
+
+  /* ---------- INVESTMENT TABLE ---------- */
+  table{width:100%;border-collapse:collapse;background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+  thead th{background:var(--petrol);color:#eaf3ef;text-align:left;font-family:'Archivo';font-weight:600;font-size:13px;letter-spacing:.04em;padding:14px 18px;}
+  thead th.r{text-align:right;}
+  tbody td{padding:13px 18px;border-top:1px solid var(--line);font-size:14.5px;vertical-align:top;}
+  tbody td.r{text-align:right;white-space:nowrap;}
+  tbody tr:nth-child(even){background:#fcfaf3;}
+  tbody td small{color:var(--muted);font-size:12.5px;display:block;}
+  .fill{display:inline-block;min-width:80px;border-bottom:2px dotted var(--gold);color:var(--gold);font-weight:700;text-align:center;}
+  tfoot td{padding:15px 18px;font-weight:700;border-top:2px solid var(--petrol);background:var(--mint-soft);}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;}
+  .pill.once{background:var(--mint);color:var(--petrol);}
+  .pill.rec{background:var(--gold-soft);color:#6b521d;}
+
+  /* notes / assumptions */
+  .note{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--muted);}
+  .note:last-child{border-bottom:0;}
+  .note b{color:var(--ink);}
+  .note .n{flex:0 0 auto;color:var(--gold);font-weight:700;font-family:'Fraunces',serif;}
+
+  /* next steps */
+  .cta{background:var(--petrol-deep);color:#eaf3ef;border-radius:22px;padding:40px;text-align:center;position:relative;overflow:hidden;}
+  .cta::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px;opacity:.5;}
+  .cta h2{color:#fff;font-size:30px;position:relative;z-index:2;}
+  .cta p{color:#cfe0da;max-width:54ch;margin:12px auto 0;position:relative;z-index:2;}
+  .signs{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:34px;position:relative;z-index:2;}
+  .sign-box{border-top:1px solid rgba(255,255,255,.25);padding-top:12px;text-align:left;}
+  .sign-box .ln{height:34px;border-bottom:1px solid rgba(255,255,255,.3);margin-bottom:8px;}
+  .sign-box small{color:#9fbab3;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
+
+  footer{background:var(--petrol-deep);color:#9fbab3;font-size:12.5px;padding:22px 0;text-align:center;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  footer a{color:var(--gold-soft);text-decoration:none;}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(18px);animation:rise .7s ease forwards;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);}
+  .table-scroll table{min-width:540px;}
+
+  @media (max-width:760px){
+    .wrap{padding:0 18px;}
+    section{padding:42px 0;}
+    .hero .wrap{padding-top:44px;padding-bottom:50px;}
+    .g2,.g3,.compare,.stack,.signs{grid-template-columns:1fr;}
+    .stack .sync{flex-direction:row;padding:10px 0;gap:12px;}
+    .sync .lbl{writing-mode:horizontal-tb;}
+    .sync .arrow{transform:rotate(90deg);}
+    .phase{grid-template-columns:1fr;gap:6px;}
+    .arch{padding:24px 20px;}
+    .card{padding:20px;}
+    .meta-row{gap:10px;}
+    .chip{font-size:12px;padding:9px 13px;}
+    .prepared .pf-logo img{height:38px;}
+    .plan .ribbon{font-size:10px;padding:6px 40px;}
+    .cta{padding:30px 22px;}
+    thead th,tbody td,tfoot td{padding:11px 13px;font-size:13.5px;}
+    footer .wrap{flex-direction:column;text-align:center;align-items:center;}
+  }
+  @media (max-width:420px){
+    .hero h1{font-size:34px;}
+    .brand{padding:7px 12px;}
+    .brand img.logo-centrix{height:28px;}
+  }
+  @media print{
+    body{background:#fff;}
+    .hero,.arch,.cta,.plan,.card,table{box-shadow:none;}
+    section{padding:26px 0;page-break-inside:avoid;}
+    .reveal{animation:none;opacity:1;transform:none;}
+    .topbar .tag{display:none;}
+  }
+
+  /* ---- logos ---- */
+  .brand{background:#fff;padding:9px 16px;border-radius:12px;box-shadow:0 8px 22px -10px rgba(0,0,0,.45);}
+  .brand img.logo-centrix{height:34px;display:block;}
+  .prepared{display:flex;align-items:center;gap:16px;margin-top:32px;flex-wrap:wrap;}
+  .prepared .pf-label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);}
+  .prepared .pf-logo{background:#fff;border-radius:12px;padding:10px 18px;display:inline-flex;box-shadow:0 8px 22px -10px rgba(0,0,0,.45);}
+  .prepared .pf-logo img{height:44px;display:block;}
+  footer .foot-logo{height:26px;vertical-align:middle;margin-right:8px;filter:brightness(0) invert(1);opacity:.85;}
+  @media print{.brand,.prepared .pf-logo{box-shadow:none;border:1px solid #e3e3e3;}}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><img class="logo-centrix" src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTE2MiAzMjAiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDp1cmwoI2xpbmVhci1ncmFkaWVudCk7fS5jbHMtMntmaWxsOnVybCgjTmV3X0dyYWRpZW50X1N3YXRjaF8xKTt9LmNscy0ze2ZpbGw6dXJsKCNsaW5lYXItZ3JhZGllbnQtMik7fS5jbHMtNHtmaWxsOnVybCgjbGluZWFyLWdyYWRpZW50LTMpO30uY2xzLTV7ZmlsbDp1cmwoI2xpbmVhci1ncmFkaWVudC00KTt9LmNscy02e2ZpbGw6IzA3OWU4Zjt9PC9zdHlsZT48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjQuMiIgeTE9IjEyMi41IiB4Mj0iMTc3LjE3IiB5Mj0iOTUuNzkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMDU2NzUiLz48c3RvcCBvZmZzZXQ9IjAuMTEiIHN0b3AtY29sb3I9IiMwNDViN2UiLz48c3RvcCBvZmZzZXQ9IjAuMyIgc3RvcC1jb2xvcj0iIzBlNjk5OCIvPjxzdG9wIG9mZnNldD0iMC41MyIgc3RvcC1jb2xvcj0iIzFlN2ZjMCIvPjxzdG9wIG9mZnNldD0iMC42MyIgc3RvcC1jb2xvcj0iIzExODZiZiIvPjxzdG9wIG9mZnNldD0iMC43MiIgc3RvcC1jb2xvcj0iIzAwOGZiZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwYWVhNyIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJOZXdfR3JhZGllbnRfU3dhdGNoXzEiIHgxPSIxLjEzIiB5MT0iMTM2LjA5IiB4Mj0iMTQzLjg2IiB5Mj0iMTM2LjA5IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDBhOGFhIi8+PHN0b3Agb2Zmc2V0PSIwLjE4IiBzdG9wLWNvbG9yPSIjMDZhMGIzIi8+PHN0b3Agb2Zmc2V0PSIwLjQ3IiBzdG9wLWNvbG9yPSIjMTc4YWNkIi8+PHN0b3Agb2Zmc2V0PSIwLjU3IiBzdG9wLWNvbG9yPSIjMWU4MWQ3Ii8+PHN0b3Agb2Zmc2V0PSIwLjY4IiBzdG9wLWNvbG9yPSIjMTE3Y2NjIi8+PHN0b3Agb2Zmc2V0PSIwLjc5IiBzdG9wLWNvbG9yPSIjMDA3NWJlIi8+PHN0b3Agb2Zmc2V0PSIwLjk5IiBzdG9wLWNvbG9yPSIjMDA2MzdjIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0yIiB4MT0iMTY0LjA3IiB5MT0iMjQ1LjgiIHgyPSIyMjguMzkiIHkyPSIyOTEuOTQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxZWFkOTYiLz48c3RvcCBvZmZzZXQ9IjAuMSIgc3RvcC1jb2xvcj0iIzI4YTk5OCIvPjxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iIzQxOWQ5ZCIgc3RvcC1vcGFjaXR5PSIwLjk5Ii8+PHN0b3Agb2Zmc2V0PSIwLjM1IiBzdG9wLWNvbG9yPSIjNGU5NzlmIiBzdG9wLW9wYWNpdHk9IjAuOTkiLz48c3RvcCBvZmZzZXQ9IjAuNDgiIHN0b3AtY29sb3I9IiM0MTkzOWMiIHN0b3Atb3BhY2l0eT0iMC45OSIvPjxzdG9wIG9mZnNldD0iMC42NCIgc3RvcC1jb2xvcj0iIzJhOGM5NyIvPjxzdG9wIG9mZnNldD0iMC45MSIgc3RvcC1jb2xvcj0iIzFlOThiNCIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMyIgeDE9IjE0Ni4yOSIgeTE9IjE3MS43NiIgeDI9IjMyNS4wNCIgeTI9IjExNy4wOSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzFlOTU4YiIvPjxzdG9wIG9mZnNldD0iMC4xMSIgc3RvcC1jb2xvcj0iIzI3OWI4YiIvPjxzdG9wIG9mZnNldD0iMC4yOSIgc3RvcC1jb2xvcj0iIzQxYWQ4YiIvPjxzdG9wIG9mZnNldD0iMC4zNiIgc3RvcC1jb2xvcj0iIzRlYjY4YiIvPjxzdG9wIG9mZnNldD0iMC41MiIgc3RvcC1jb2xvcj0iIzQxYWY4NCIvPjxzdG9wIG9mZnNldD0iMC43MiIgc3RvcC1jb2xvcj0iIzJhYTQ3OSIvPjxzdG9wIG9mZnNldD0iMC45OSIgc3RvcC1jb2xvcj0iIzAwNmQ3YyIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNCIgeDE9IjE4MC4wOSIgeTE9IjYwLjA5IiB4Mj0iMzI3LjQ3IiB5Mj0iMTAyLjA0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDBhOThkIi8+PHN0b3Agb2Zmc2V0PSIwLjE4IiBzdG9wLWNvbG9yPSIjMDdhYzk2Ii8+PHN0b3Agb2Zmc2V0PSIwLjQ4IiBzdG9wLWNvbG9yPSIjMThiNWIwIi8+PHN0b3Agb2Zmc2V0PSIwLjU3IiBzdG9wLWNvbG9yPSIjMWViOGI4Ii8+PHN0b3Agb2Zmc2V0PSIwLjY4IiBzdG9wLWNvbG9yPSIjMTFiM2IzIi8+PHN0b3Agb2Zmc2V0PSIwLjc5IiBzdG9wLWNvbG9yPSIjMDBhY2FjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDBhMmE3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Il82IiBkYXRhLW5hbWU9IjYiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE3Ni4xNi43NUg1OC4xUzE2LjM5LS42MywyLDUzYTI1LjY5LDI1LjY5LDAsMCwwLS44Niw2LjY0VjE2MC43NXMxLjY5LDQ0LjMyLDU2LjQzLDU3Ljg0aDYxLjY2cy01LjQxLTE5LDI0LjY0LTU1LjY4SDg2cy0yNS41NC0yLjkxLTI5LjMtMjYuMlY4OS4zOVM1NC4xLDY2LjY2LDgyLjIyLDU2LjIyYTMyLjksMzIuOSwwLDAsMSwxMS40MS0yaDIzLjkzbDEuMjEsMEMxMjMuMjEsNTQuMzMsMTU5LjI2LDUzLjU3LDE3Ni4xNi43NVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik04OC42NSw1NC4yYy0zMS44MSw4LjMyLTMyLjE2LDMwLjY3LTMyLDM0LjYsMCwuNjksMCwxLjM4LDAsMi4wN3Y0Mi44YTIwLjkzLDIwLjkzLDAsMCwwLDEuODcsOC44MmM1LDEwLjc1LDE2Ljc5LDE2LjU1LDIzLjE2LDE5YTIxLjUsMjEuNSwwLDAsMCw3LjY4LDEuNDJoNTQuNDNjLTMwLjA1LDM2LjcyLTI0LjY0LDU1LjY4LTI0LjY0LDU1LjY4SDU5LjYzYTMyLjEzLDMyLjEzLDAsMCwxLTQuNi0uMzJDMy4zMiwyMTEsMS4xMywxNjAuNzUsMS4xMywxNjAuNzVWMTA5LjM3UzUuNjQsNDYuODEsODguNjUsNTQuMiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTI1MC43MywyMTguMzhzLTQzLjY4LTE0LjczLTY5LjU4LTEyLjctMzguNiwxMi43LTM4LjYsMTIuN1YzMjBjMzguMDctLjIyLDUwLjMyLTI4LjU1LDUzLjk1LTQxLjY5YTM5LjA5LDM5LjA5LDAsMCwwLDEuNDEtMTAuNDN2LTIzLjJhMjIuNDQsMjIuNDQsMCwwLDEsMTUtMjEuMTZjOC4yMy0yLjg5LDIwLjU0LTUuMDksMzYuMjktNS4wOSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTE0Mi4zNSwyMTguNTljNy41Mi01My4zMyw1Ni4zNC01NS41OSw1Ni4zNC01NS41OWgzN2ExOS45LDE5LjksMCwwLDAsNS43My0uODJjMzEuODktOS42NywzMC4xMi0zMi4yMywzMC4xMi0zMi4yM1Y4Ni4xNmEyOC40NywyOC40NywwLDAsMC0xLjkyLTEwLjQ5Yy03LjE2LTE4LTI4LjEzLTI0LjU5LTI4LjEzLTI0LjU5bC01NC44NC0uNzVDMjE2LjcyLDEzLjYxLDIxMCw1LjI2LDIxMCw1LjI2bDYxLjYtMS41YzU0Ljc0LDEzLjUyLDU1LjU4LDU0LjgzLDU1LjU4LDU0LjgzVjE2MC4zYTI4Ljc1LDI4Ljc1LDAsMCwxLS41Niw1Ljc4Yy02LjM5LDMwLjc3LTMyLjU3LDQ1LjE2LTQ0LjYsNTAuMjVhMjguODQsMjguODQsMCwwLDEtMTEuMjMsMi4yNkgxOTguNjljLTUyLjU4LDAtNTYuMzQsMTAxLjQxLTU2LjM0LDEwMS40MVYyMTguNTkiLz48cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik0yMzguNTEsMTYzYzM0LjkyLTkuMTMsMzMuMDUtMzMuMDUsMzMuMDUtMzMuMDVWODIuNjNjLTIuNy0xNC0xNi42Mi0yMS40Mi0yNC4yNi0yNC40N2EyNi4yNiwyNi4yNiwwLDAsMC04Ljg4LTEuODdMMTczLjksNTQuMDhDMjAxLjcsMjAuMjgsMTk4LjY5LDAsMTk4LjY5LDBsNjkuOS43M2EzNS44OSwzNS44OSwwLDAsMSw0Ljc1LjM1YzUxLjYyLDcuMzYsNTMuOCw1Ny41MSw1My44LDU3LjUxVjExMHMtNS42Myw2MC40My04OC42Myw1MyIvPjxwYXRoIGNsYXNzPSJjbHMtNiIgZD0iTTQ0Ni4yOCwxNTIuMDlhMjcuNjMsMjcuNjMsMCwwLDEtMi40NCwxMC43MiwzOS4yNCwzOS4yNCwwLDAsMS0yMSwyMC4zMiw0OCw0OCwwLDAsMS0xOC45NSwzLjQ3QTY2LDY2LDAsMCwxLDM4OC45MywxODVhNDEuODMsNDEuODMsMCwwLDEtMTIuMi00Ljg0LDQxLjEyLDQxLjEyLDAsMCwxLTEwLjA3LTguNjYsNTEuMTIsNTEuMTIsMCwwLDEtNy0xMC45Myw1Ni4zLDU2LjMsMCwwLDEtNC4zNS0xMi45LDcwLjEsNzAuMSwwLDAsMS0xLjQ1LTE0LjU3LDY0LjU1LDY0LjU1LDAsMCwxLDMuNjQtMjIuNDEsNDcuNzksNDcuNzksMCwwLDEsMTAuNDMtMTYuOTQsNDUuNDMsNDUuNDMsMCwwLDEsMTUuOTEtMTAuNzEsNTEuNTQsNTEuNTQsMCwwLDEsMTkuNDUtMy42OCw0OC41Miw0OC41MiwwLDAsMSwyMi40MSw1cTkuODIsNSwxNS4wNiwxMi40MXQ1LjI0LDE0YTkuMSw5LjEsMCwwLDEtMi41NSw2LjM2LDguMDcsOC4wNywwLDAsMS02LjE1LDIuNzZjLTIuNjksMC00LjctLjY0LTYuMDUtMS45MWEyNi41NSwyNi41NSwwLDAsMS00LjQ5LTYuNThxLTQuMS03LjctOS42NS0xMS41MmEyMy41MywyMy41MywwLDAsMC0xMy42OC0zLjgycS0xMi45NCwwLTIwLjYyLDkuODN0LTcuNjcsMjcuOTNxMCwxMi4wOSwzLjQsMjAuMTJhMjUuMzUsMjUuMzUsMCwwLDAsOS42MSwxMiwyNi41NywyNi41NywwLDAsMCwxNC41Nyw0cTksMCwxNS4zMS00LjQ5dDkuNDQtMTMuMTlhMjIuMjcsMjIuMjcsMCwwLDEsMy4zMi02LjY4cTItMi41OCw2LjM3LTIuNThhOC44OCw4Ljg4LDAsMCwxLDYuNDMsMi42MkE4LjcxLDguNzEsMCwwLDEsNDQ2LjI4LDE1Mi4wOVoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik01MTQuMjIsMTIzLjZINDgxLjF2MTcuODJoMzAuNDlhNy4zMiw3LjMyLDAsMCwxLDUsMS41MSw1LjE2LDUuMTYsMCwwLDEsMS42NSw0LDUuMzEsNS4zMSwwLDAsMS0xLjYzLDRxLTEuNjQsMS41Ni01LjA1LDEuNTZINDgxLjF2MjAuNjRoMzQuMjVhNy41LDcuNSwwLDAsMSw1LjIyLDEuNjEsNS40OSw1LjQ5LDAsMCwxLDEuNzYsNC4yOCw1LjM3LDUuMzcsMCwwLDEtMS43Niw0LjE4LDcuNDUsNy40NSwwLDAsMS01LjIyLDEuNjFINDc1LjQxYy0zLjIsMC01LjUxLS43MS02LjkxLTIuMTNzLTIuMS0zLjcxLTIuMS02Ljg4VjEyMS4yOGExMi4yMSwxMi4yMSwwLDAsMSwuOTQtNS4xOCw1Ljg3LDUuODcsMCwwLDEsMy0yLjkyLDEyLjM1LDEyLjM1LDAsMCwxLDUuMTItLjkxaDM4LjgxYTcuNTQsNy41NCwwLDAsMSw1LjIyLDEuNTYsNS44MSw1LjgxLDAsMCwxLDAsOC4yMUE3LjU0LDcuNTQsMCwwLDEsNTE0LjIyLDEyMy42WiIvPjxwYXRoIGNsYXNzPSJjbHMtNiIgZD0iTTU1Ni40MSwxMTkuODRsMjguMjcsNDIuNzdWMTE5LjQ0cTAtNC4yLDEuOC02LjMxYTYuMTEsNi4xMSwwLDAsMSw0Ljg4LTIuMSw2LjI5LDYuMjksMCwwLDEsNSwyLjFxMS44MywyLjEyLDEuODMsNi4zMXY1Ny4wOHEwLDkuNTQtNy45Miw5LjU1YTEwLjQzLDEwLjQzLDAsMCwxLTMuNTYtLjU3LDguOSw4LjksMCwwLDEtMy0xLjgxLDE3LjI0LDE3LjI0LDAsMCwxLTIuNTgtMi44OXEtMS4xOC0xLjY3LTIuMzctMy4zOWwtMjcuNTctNDIuMjd2NDIuNTFjMCwyLjc4LS42NSw0Ljg3LTEuOTQsNi4yOWE2Ljg0LDYuODQsMCwwLDEtOS45NCwwYy0xLjI2LTEuNDQtMS44OC0zLjUzLTEuODgtNi4yN3YtNTZhMTUuOCwxNS44LDAsMCwxLC43OS01LjU5LDcuODgsNy44OCwwLDAsMSwzLjEyLTMuNjQsOC40OSw4LjQ5LDAsMCwxLDQuNy0xLjQxLDcuNjMsNy42MywwLDAsMSw1Ljg2LDIuMzgsMTcuMiwxNy4yLDAsMCwxLDIuMTgsMi44MkM1NTQuODUsMTE3LjM4LDU1NS42MiwxMTguNTksNTU2LjQxLDExOS44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik02NjQuNjQsMTI0LjM5aC0xNnY1Mi43MnEwLDQuNTYtMiw2Ljc2YTcuNDEsNy40MSwwLDAsMS0xMC41NywwYy0xLjM3LTEuNDgtMi4wNi0zLjczLTIuMDYtNi43M1YxMjQuMzloLTE2cS0zLjc2LDAtNS42LTEuNjVhNS42NCw1LjY0LDAsMCwxLTEuODMtNC4zOCw1LjU2LDUuNTYsMCwwLDEsMS45MS00LjQ2LDguMjUsOC4yNSwwLDAsMSw1LjUyLTEuNjNoNDYuNzJxMy44MSwwLDUuNjcsMS42OGE1LjY2LDUuNjYsMCwwLDEsMS44Niw0LjQxLDUuNTgsNS41OCwwLDAsMS0xLjg4LDQuMzhRNjY4LjQsMTI0LjM5LDY2NC42NCwxMjQuMzlaIi8+PHBhdGggY2xhc3M9ImNscy02IiBkPSJNNzAzLjg3LDE1My44aC01LjE0djIzLjMxcTAsNC42LTIsNi43OGE2LjkzLDYuOTMsMCwwLDEtNS4zLDIuMTgsNi43Niw2Ljc2LDAsMCwxLTUuNDUtMi4yOGMtMS4yOC0xLjUyLTEuOTItMy43NC0xLjkyLTYuNjhWMTIxLjI4YzAtMy4xNy43LTUuNDYsMi4xMi02Ljg4czMuNzItMi4xMyw2Ljg4LTIuMTNoMjMuOTFhNzIuOTQsNzIuOTQsMCwwLDEsOC40Ny40MiwyMS4xOCwyMS4xOCwwLDAsMSw2LjMzLDEuNzEsMTguMjMsMTguMjMsMCwwLDEsNiw0LjEsMTgsMTgsMCwwLDEsNCw2LjIyLDIwLjY1LDIwLjY1LDAsMCwxLDEuMzcsNy40OXEwLDguMTMtNC41OCwxM3QtMTMuODksNi44OGEyNy4xLDI3LjEsMCwwLDEsNy40OCw2LjE0LDY2LjgzLDY2LjgzLDAsMCwxLDEwLjcxLDE2LjkxLDE2LjI4LDE2LjI4LDAsMCwxLDEuNTYsNS4wNyw1LjIxLDUuMjEsMCwwLDEtLjkxLDIuODUsNi40MSw2LjQxLDAsMCwxLTIuNSwyLjIyLDcuODMsNy44MywwLDAsMS0zLjY2LjgyLDcuMTYsNy4xNiwwLDAsMS00LjE2LTEuMTYsMTEuMTYsMTEuMTYsMCwwLDEtMi45LTIuOTVjLS44MS0xLjE5LTEuOS0yLjk0LTMuMjktNS4yNWwtNS44OS05LjhhNTMuNyw1My43LDAsMCwwLTUuNjctOC4yMSwxNCwxNCwwLDAsMC01LjA3LTMuODZBMTcuMzMsMTcuMzMsMCwwLDAsNzAzLjg3LDE1My44Wm04LjQyLTMwLjQ5SDY5OC43M3YxOS45NGgxMy4xNmEzNywzNywwLDAsMCw4LjkxLS45MSwxMC40MywxMC40MywwLDAsMCw1LjUyLTMuMTIsOSw5LDAsMCwwLDEuOTEtNi4wNiw5LjE4LDkuMTgsMCwwLDAtNS43OS04Ljc3UTcxOS44NiwxMjMuMzEsNzEyLjI5LDEyMy4zMVoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik03NjAuODcsMTc3LjExVjExOS45NHEwLTQuNDUsMi02LjY4YTYuNzcsNi43NywwLDAsMSw1LjI1LTIuMjMsNyw3LDAsMCwxLDUuMzcsMi4ycTIuMDYsMi4yLDIuMDUsNi43MXY1Ny4xN2MwLDMtLjY4LDUuMjUtMi4wNSw2LjczYTcsNywwLDAsMS01LjM3LDIuMjMsNi43Niw2Ljc2LDAsMCwxLTUuMjItMi4yNVE3NjAuODgsMTgxLjU3LDc2MC44NywxNzcuMTFaIi8+PHBhdGggY2xhc3M9ImNscy02IiBkPSJNNzkyLjU4LDE3MC43Miw4MDguODEsMTQ3bC0xMy42Ni0yMS4wOGE0Mi4yNyw0Mi4yNywwLDAsMS0yLjg5LTUuMjcsMTAuNDQsMTAuNDQsMCwwLDEtMS00LjIzLDQuOTEsNC45MSwwLDAsMSwxLjg2LTMuNzQsNi41Myw2LjUzLDAsMCwxLDQuNTMtMS42Niw2LjIyLDYuMjIsMCwwLDEsNC43NywxLjgxLDQ1LjE5LDQ1LjE5LDAsMCwxLDQuNzMsNi43bDEwLjg5LDE3LjYzLDExLjYzLTE3LjYzcTEuNDQtMi4yMiwyLjQ1LTMuODFhMjAuMjUsMjAuMjUsMCwwLDEsMi0yLjYyLDYuMzYsNi4zNiwwLDAsMSwyLjEtMS41Niw2LjU0LDYuNTQsMCwwLDEsMi43LS41Miw2LjMxLDYuMzEsMCwwLDEsNC41MywxLjY2LDUuMjMsNS4yMywwLDAsMSwxLjc2LDMuOTNxMCwzLjMxLTMuODIsOUw4MjcuMDgsMTQ3bDE1LjM5LDIzLjcxYTM4LjQxLDM4LjQxLDAsMCwxLDMsNS4xOCw5LjI5LDkuMjksMCwwLDEsLjk0LDMuODgsNi4xNiw2LjE2LDAsMCwxLS44NCwzLjE3LDYuMDUsNi4wNSwwLDAsMS0yLjM3LDIuMjgsNy4xMyw3LjEzLDAsMCwxLTMuNDcuODQsNi42NSw2LjY1LDAsMCwxLTMuNTEtLjg3LDcuMyw3LjMsMCwwLDEtMi4zMy0yLjE1Yy0uNTktLjg2LTEuNy0yLjUyLTMuMzItNUw4MTcuODIsMTU4bC0xMy41NiwyMC43Yy0xLjA2LDEuNjUtMS44MSwyLjgtMi4yNSwzLjQ2QTEzLjM5LDEzLjM5LDAsMCwxLDgwMC40LDE4NGE3LDcsMCwwLDEtMi4yMywxLjQ5LDcuNzYsNy43NiwwLDAsMS0zLC41NCw1Ljg0LDUuODQsMCwwLDEtNi4xOC02LjM5UTc4OSwxNzYsNzkyLjU4LDE3MC43MloiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik05MjcsMTU2LjU3SDkxMy41M3YyMC41NGMwLDIuOTQtLjcsNS4xNi0yLjA4LDYuNjhhNy4zMyw3LjMzLDAsMCwxLTEwLjYsMGMtMS4zNS0xLjUtMi0zLjcxLTItNi42MVYxMjEuMjhjMC0zLjI0Ljc1LTUuNTUsMi4yMy02LjkzczMuODUtMi4wOCw3LjA4LTIuMDhIOTI3YTQ5LjgsNDkuOCwwLDAsMSwxMi44NywxLjI4LDE5LjI4LDE5LjI4LDAsMCwxLDcuNyw0LjExLDE4LjU3LDE4LjU3LDAsMCwxLDQuOTIsNywyNC43OCwyNC43OCwwLDAsMSwxLjY4LDkuMzZxMCwxMS4wOC02LjgzLDE2LjhUOTI3LDE1Ni41N1ptLTMuNTYtMzMuMjZoLTkuOXYyMi4xN2g5LjlhMjkuMzgsMjkuMzgsMCwwLDAsOC42OC0xLjA5LDEwLjA2LDEwLjA2LDAsMCwwLDUuMzItMy41NiwxMC41OCwxMC41OCwwLDAsMCwxLjg0LTYuNDksMTEsMTEsMCwwLDAtMi44My03LjgyUTkzMy4yOCwxMjMuMzEsOTIzLjQzLDEyMy4zMVoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik05ODIuODcsMTE5Ljk0djUyLjgxaDI5LjhhNy44Myw3LjgzLDAsMCwxLDUuNDcsMS43NCw1LjYyLDUuNjIsMCwwLDEsMS45MSw0LjM1LDUuNDgsNS40OCwwLDAsMS0xLjg5LDQuMzMsOCw4LDAsMCwxLTUuNDksMS42Nkg5NzcuMThxLTQuOCwwLTYuOS0yLjEzYy0xLjQxLTEuNDEtMi4xMS0zLjcxLTIuMTEtNi44OFYxMTkuOTRxMC00LjQ1LDItNi42OGE2LjcyLDYuNzIsMCwwLDEsNS4yNy0yLjIzLDcsNywwLDAsMSw1LjM3LDIuMlE5ODIuODgsMTE1LjQ0LDk4Mi44NywxMTkuOTRaIi8+PHBhdGggY2xhc3M9ImNscy02IiBkPSJNMTAyNi43NywxNTQuODR2LTM0LjlxMC00LjQ1LDItNi42OGE2Ljc0LDYuNzQsMCwwLDEsNS4yNy0yLjIzLDYuOSw2LjksMCwwLDEsNS40MiwyLjIzcTIsMi4yMiwyLDYuNjh2MzUuNjlhMzIuNDYsMzIuNDYsMCwwLDAsMS4zNiwxMC4xNywxMS43NSwxMS43NSwwLDAsMCw0LjgyLDYuMzRjMi4zMSwxLjUsNS41NSwyLjI1LDkuNywyLjI1cTguNjMsMCwxMi4xOC00LjU4dDMuNTctMTMuODl2LTM2cTAtNC41LDItNi43MWE2Ljc3LDYuNzcsMCwwLDEsNS4zLTIuMiw3LDcsMCwwLDEsNS4zNywyLjJxMi4wNSwyLjIsMi4wNiw2LjcxdjM0LjlhNTEuNzksNTEuNzksMCwwLDEtMS42NiwxNC4yLDIxLjkzLDIxLjkzLDAsMCwxLTYuMjYsMTAsMjQuMzMsMjQuMzMsMCwwLDEtOS4yMSw1LjM1LDQwLjM3LDQwLjM3LDAsMCwxLTEyLjI4LDEuNjgsNTAuNDMsNTAuNDMsMCwwLDEtMTQuNC0xLjgxLDIzLDIzLDAsMCwxLTkuODUtNS41OSwyMi41MiwyMi41MiwwLDAsMS01LjU5LTkuN0E0OS4yNiw0OS4yNiwwLDAsMSwxMDI2Ljc3LDE1NC44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik0xMTYwLjg3LDE2My4wNWEyMS4zLDIxLjMsMCwwLDEtMy4zOSwxMS44MywyMi41NiwyMi41NiwwLDAsMS05LjkzLDguMjIsMzcuMTksMzcuMTksMCwwLDEtMTUuNDksM3EtMTAuNzQsMC0xNy43Mi00LjA2YTIzLjYyLDIzLjYyLDAsMCwxLTgtNy43OSwxNy43NCwxNy43NCwwLDAsMS0zLjA5LTkuNDgsNi40NCw2LjQ0LDAsMCwxLDYuNTgtNi40OSw1LjYsNS42LDAsMCwxLDMuOTQsMS40OSwxMS42NywxMS42NywwLDAsMSwyLjc1LDQuNCwyOS4zMiwyOS4zMiwwLDAsMCwzLDUuNzksMTIuMTUsMTIuMTUsMCwwLDAsNC41MywzLjg0LDE2LjY5LDE2LjY5LDAsMCwwLDcuNjcsMS41MXE2LjU0LDAsMTAuNjItMy4wNWE5LjE0LDkuMTQsMCwwLDAsNC4wOC03LjU5LDgsOCwwLDAsMC0yLjItNS44NywxNC4yNCwxNC4yNCwwLDAsMC01LjY5LTMuNDRxLTMuNDktMS4xOS05LjMzLTIuNTJhNjgsNjgsMCwwLDEtMTMuMS00LjI5LDIxLjEzLDIxLjEzLDAsMCwxLTguMzYtNi42OCwxNy4zNCwxNy4zNCwwLDAsMS0zLjA5LTEwLjUyLDE4LDE4LDAsMCwxLDMuMjYtMTAuNjQsMjAuNjMsMjAuNjMsMCwwLDEsOS40Ni03LjE1LDM4LjYsMzguNiwwLDAsMSwxNC41NS0yLjUsMzUuOSwzNS45LDAsMCwxLDExLjU2LDEuNjYsMjQuMzksMjQuMzksMCwwLDEsOC4wOSw0LjQsMTguMzUsMTguMzUsMCwwLDEsNC43LDUuNzcsMTMuMzEsMTMuMzEsMCwwLDEsMS40OSw1Ljg5LDcsNywwLDAsMS0xLjg2LDQuNzMsNS45Myw1LjkzLDAsMCwxLTQuNjMsMi4xLDUuMzEsNS4zMSwwLDAsMS0zLjgzLTEuMjYsMTYuNzksMTYuNzksMCwwLDEtMi44NS00LjEzLDE4LjY2LDE4LjY2LDAsMCwwLTQuNzUtNi40MXEtMi43Ny0yLjMxLTguOTEtMi4zMWExNS40NCwxNS40NCwwLDAsMC05LjE4LDIuNXEtMy41LDIuNS0zLjQ5LDZhNi4wNSw2LjA1LDAsMCwwLDEuMTksMy43NiwxMCwxMCwwLDAsMCwzLjI2LDIuNzIsMjEuNDksMjEuNDksMCwwLDAsNC4yMSwxLjc4cTIuMTMuNjUsNywxLjg5QTEwOS40NiwxMDkuNDYsMCwwLDEsMTE0NSwxNDMuM2EzNCwzNCwwLDAsMSw4LjQ3LDQuMjEsMTcuMzUsMTcuMzUsMCwwLDEsNS40NCw2LjI2QTIwLjEyLDIwLjEyLDAsMCwxLDExNjAuODcsMTYzLjA1WiIvPjwvZz48L3N2Zz4=" alt="Centrix Plus" /></div>
+      <div class="tag">Solution Proposal · Confidential</div>
+    </div>
+    <h1>A lean, two-engine Odoo&nbsp;V19 setup for <em>Virtus&nbsp;Dental</em></h1>
+    <p class="lede">Run your day-to-day Sales, Invoicing &amp; Accounts on free, unlimited-user Odoo Community — and keep proper HR &amp; advanced Accounting on Odoo Enterprise with only the licences you actually need. Two servers, one connected view.</p>
+    <div class="prepared">
+      <span class="pf-label">Prepared for</span>
+      <span class="pf-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXAAAAB4CAYAAADrPanmAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF+mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDUgNzkuMTYzNDk5LCAyMDE4LzA4LzEzLTE2OjQwOjIyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIwLTExLTEyVDE4OjIwOjEyKzA1OjMwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0xMS0xMlQxOTowNDoxMSswNTozMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0xMS0xMlQxOTowNDoxMSswNTozMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDplZTgyOTM5Ni02NTZhLTA0NDctYjVlZS0xNGE5MTNjMTlmNDMiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo0NjYyNTAyZS05MTBmLTA0NGUtYTY1NC01MzFiZmQ4N2E0NGUiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoyZjUwZTQ0MS0wMDNhLTQ1NDMtOWUxOC0wNDAwOGI2ZGNjYjUiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjJmNTBlNDQxLTAwM2EtNDU0My05ZTE4LTA0MDA4YjZkY2NiNSIgc3RFdnQ6d2hlbj0iMjAyMC0xMS0xMlQxODoyMDoxMiswNTozMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDplZTgyOTM5Ni02NTZhLTA0NDctYjVlZS0xNGE5MTNjMTlmNDMiIHN0RXZ0OndoZW49IjIwMjAtMTEtMTJUMTk6MDQ6MTErMDU6MzAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5Mvni1AAA430lEQVR4nO29eZgd1X3n/am6S29qdUtCEhKLJBA7NjvI2BiwcbCxgdjxbmcdTzLzOsksiZPMzPNkMp7HycTJZGInfv3O2ONJJnmNJ8ROZoxDwIANNptZJRAgQDtCW0vqfbn3Vp3541tHVbf6LnVv326p4Xyfp5/u27eWU6fO+f5+57cdzxiDg4ODg8Pig3+iG+Dg4ODg0B4cgTs4ODgsUjgCd3BwcFikcATu4ODgsEjhCNzBwcFhkcIRuIODg8MihSNwBwcHh0UK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" alt="Virtus Dental" /></span>
+    </div>
+    <div class="meta-row">
+      <div class="chip"><b>Platform</b> &nbsp;Odoo 19 (Community + Enterprise)</div>
+      <div class="chip"><b>Timeline</b> &nbsp;30–40 days</div>
+      <div class="chip"><b>Date</b> &nbsp;31 May 2026</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= UNDERSTANDING ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Understanding your needs</div>
+    <h2 class="sec">What you asked for</h2>
+    <p class="sec-sub">The objective is to capture the full strength of Odoo while keeping per-user licence costs to a minimum. Here is a summary of the requirements.</p>
+    <div class="card">
+      <div class="need">
+        <div class="ico">01</div>
+        <div><b>Day-to-day operations on Community (free, unlimited users)</b><span>Accounts Receivable, Accounts Payable, Sales &amp; Customer Invoices — used by reception and front-desk staff at no per-user cost.</span></div>
+      </div>
+      <div class="need">
+        <div class="ico">02</div>
+        <div><b>HR on Odoo Enterprise</b><span>Employees, contracts, leaves, payroll-readiness and the richer HR tools that only Enterprise provides.</span></div>
+      </div>
+      <div class="need">
+        <div class="ico">03</div>
+        <div><b>Minimum licences possible</b><span>You proposed buying a single Enterprise user (HR only). We agree on keeping it lean — and recommend a small, optional step up. See the comparison below.</span></div>
+      </div>
+      <div class="need">
+        <div class="ico">04</div>
+        <div><b>One connected picture</b><span>Sales/invoice activity recorded in Community should flow through to your books and sit alongside HR in a single consolidated report.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLUTION ARCHITECTURE ================= -->
+<section style="background:var(--mint-soft);">
+  <div class="wrap">
+    <div class="eyebrow">The solution</div>
+    <h2 class="sec">Two engines, one connected view</h2>
+    <p class="sec-sub">We deploy two separate Odoo 19 instances on <b>two virtual machines</b>. Community carries the high-volume, many-user work for free; Enterprise carries HR (and optionally Accounting) on a tiny number of paid licences. A secure integration keeps them in sync.</p>
+
+    <div class="arch">
+      <h3>Deployment &amp; data flow</h3>
+      <p class="sub">Self-hosted on your own cloud — full ownership of your data.</p>
+      <div class="stack">
+        <!-- VM 1 -->
+        <div class="vm">
+          <div class="vm-head"><span class="name">VM 1 · Operations</span><span class="badge free">Community · Free</span></div>
+          <ul class="modlist">
+            <li>Sales &amp; Quotations</li>
+            <li>Customer Invoices (AR)</li>
+            <li>Vendor Bills (AP)</li>
+            <li>Contacts &amp; Products</li>
+          </ul>
+          <div class="users"><b>Unlimited users</b> — reception, front desk, operations. No per-user cost.</div>
+        </div>
+        <!-- SYNC -->
+        <div class="sync">
+          <span class="arrow">⇄</span>
+          <span class="lbl">Secure API sync</span>
+        </div>
+        <!-- VM 2 -->
+        <div class="vm">
+          <div class="vm-head"><span class="name">VM 2 · Management</span><span class="badge ent">Enterprise · Paid</span></div>
+          <ul class="modlist">
+            <li>Human Resources (HR)</li>
+            <li>Advanced Accounting <span class="muted" style="font-size:11px;">(Option B)</span></li>
+            <li>Financial reporting &amp; bank reconciliation</li>
+            <li>Odoo Studio &amp; multi-company</li>
+          </ul>
+          <div class="users"><b>1–2 named users</b> — HR officer &amp; (optionally) accountant.</div>
+        </div>
+      </div>
+
+      <div class="one-view">
+        <div class="ico">◎</div>
+        <div>
+          <b>One-view consolidated reporting.</b>
+          <p>Invoices, receivables and payables captured in Community are pushed into Enterprise Accounting as journal entries, then combined with HR data so management sees finance and people in a single dashboard.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:22px;">
+      <div class="card feature"><h4><span class="dot"></span>Lowest licence cost</h4><p>Pay only for the 1–2 people who truly need Enterprise. Everyone else works free on Community.</p></div>
+      <div class="card feature"><h4><span class="dot"></span>You own your data</h4><p>Both instances run on your own cloud VMs — no lock-in, full export rights, easy backups.</p></div>
+      <div class="card feature"><h4><span class="dot"></span>Room to grow</h4><p>Add Enterprise users or apps later without re-architecting. Start lean, scale when ready.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LICENSE COMPARISON ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Licence options</div>
+    <h2 class="sec">Buy 1 user, or 2? Our honest take</h2>
+    <p class="sec-sub">The bare minimum to make this work is <b>one</b> Enterprise user (HR only). We recommend <b>two</b> — adding the accountant to Enterprise — so that journal entries, double-entry bookkeeping and statutory reporting are done correctly. Odoo's Accounting is significantly more capable than Community's basic Invoicing.</p>
+
+    <div class="compare">
+      <!-- OPTION A -->
+      <div class="plan">
+        <div class="plan-head">
+          <div class="opt">Option A — Bare minimum</div>
+          <h3>1 Enterprise User</h3>
+          <div class="who">HR on Enterprise · Accounting on Community</div>
+        </div>
+        <div class="price">
+          <span class="big">≈ KWD 94.69</span><span class="per"> / year</span>
+          <div class="alt">≈ KWD 7.89 / month &nbsp;·&nbsp; 1 user · Odoo Custom plan</div>
+        </div>
+        <ul>
+          <li><span class="ck">✓</span> Full Odoo HR module (Enterprise)</li>
+          <li><span class="ck">✓</span> Unlimited free users on Community for Sales &amp; Invoicing</li>
+          <li><span class="ck">✓</span> AR / AP &amp; customer invoicing in Community</li>
+          <li class="dim"><span class="no">✕</span> Accounting limited to Community's basic Invoicing app</li>
+          <li class="dim"><span class="no">✕</span> No advanced financial reports, budgets, or automated bank reconciliation</li>
+          <li class="dim"><span class="no">✕</span> Manual oversight needed to keep the books clean</li>
+        </ul>
+        <div class="plan-foot">
+          <div class="verdict">Cheapest possible. Best only if a fully professional accounting workflow is not yet a priority.</div>
+        </div>
+      </div>
+
+      <!-- OPTION B -->
+      <div class="plan reco">
+        <div class="ribbon">Recommended</div>
+        <div class="plan-head">
+          <div class="opt">Option B — Recommended</div>
+          <h3>2 Enterprise Users</h3>
+          <div class="who">HR + Accounting on Enterprise</div>
+        </div>
+        <div class="price">
+          <span class="big">≈ KWD 189.38</span><span class="per"> / year</span>
+          <div class="alt">≈ KWD 15.78 / month &nbsp;·&nbsp; 2 users · Odoo Custom plan</div>
+        </div>
+        <ul>
+          <li><span class="ck">✓</span> Everything in Option A</li>
+          <li><span class="ck">✓</span> Full double-entry Accounting in Enterprise (done properly)</li>
+          <li><span class="ck">✓</span> Advanced financial statements: P&amp;L, balance sheet, cash flow, aged reports</li>
+          <li><span class="ck">✓</span> Automated bank reconciliation &amp; payment follow-ups</li>
+          <li><span class="ck">✓</span> Clean, audit-ready books from day one</li>
+          <li><span class="ck">✓</span> Still unlimited free Community users for front-desk invoicing</li>
+        </ul>
+        <div class="plan-foot">
+          <div class="verdict"><b>Our recommendation.</b> For roughly <b>KWD 95 more per year</b> (one extra licence) you get correct accounting and proper reporting — well worth it for a growing clinic.</div>
+        </div>
+      </div>
+    </div>
+    <p class="muted" style="font-size:12.5px;margin-top:16px;">Licence figures are based on Odoo's <b>Custom plan</b> at <b>USD&nbsp;306 / user / year ≈ KWD&nbsp;94.69</b> (≈ KWD&nbsp;7.89 / month). The Custom plan is required because the deployment is self-hosted and uses Odoo's external API for the integration. Prices are paid directly to Odoo; confirm the current rate at checkout.</p>
+  </div>
+</section>
+
+<!-- ================= SCOPE ================= -->
+<section style="background:var(--mint-soft);">
+  <div class="wrap">
+    <div class="eyebrow">What we deliver</div>
+    <h2 class="sec">Scope of work</h2>
+    <p class="sec-sub">A complete, ready-to-use environment plus the training to run it confidently.</p>
+    <div class="grid g2">
+      <div class="card feature"><h4><span class="dot"></span>Infrastructure</h4><p>Provision &amp; harden 2 cloud VMs, install Odoo 19 (Community + Enterprise), SSL, daily automated backups.</p></div>
+      <div class="card feature"><h4><span class="dot"></span>Community setup</h4><p>Configure Sales, Customer Invoices (AR), Vendor Bills (AP), chart of accounts, taxes, products &amp; customers.</p></div>
+      <div class="card feature"><h4><span class="dot"></span>Enterprise setup</h4><p>Configure HR — employees, departments, contracts, leaves, attendances — plus Accounting (Option B).</p></div>
+      <div class="card feature"><h4><span class="dot"></span>Integration &amp; reporting</h4><p>Build the secure API sync so Community invoices flow into Enterprise Accounting, and a unified finance + HR report.</p></div>
+      <div class="card feature"><h4><span class="dot"></span>Data &amp; opening balances</h4><p>Import master data (customers, vendors, products, employees) and enter opening balances for a clean start.</p></div>
+      <div class="card feature"><h4><span class="dot"></span>Training &amp; go-live</h4><p>Role-based training for front-desk, HR &amp; accounting, documentation, and post-launch hyper-care support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Delivery</div>
+    <h2 class="sec">Timeline — 30 to 40 days</h2>
+    <p class="sec-sub">Indicative working-day schedule. Phases overlap where possible to keep delivery tight.</p>
+    <div class="card timeline">
+      <div class="phase"><div class="when">Days 1–5<span>Discovery</span></div><div class="what"><b>Requirements &amp; infrastructure</b><p>Confirm chart of accounts, HR structure &amp; reporting needs. Provision both VMs and install Odoo 19.</p></div></div>
+      <div class="phase"><div class="when">Days 6–18<span>Build</span></div><div class="what"><b>Configuration</b><p>Set up Community (Sales, AR, AP, invoicing) and Enterprise (HR, plus Accounting in Option B).</p></div></div>
+      <div class="phase"><div class="when">Days 16–28<span>Connect</span></div><div class="what"><b>Integration &amp; data</b><p>Build and test the Community ↔ Enterprise sync, the consolidated report, and load master data &amp; opening balances.</p></div></div>
+      <div class="phase"><div class="when">Days 26–35<span>Enable</span></div><div class="what"><b>Training &amp; UAT</b><p>Role-based training and user acceptance testing with your team. Refine based on feedback.</p></div></div>
+      <div class="phase"><div class="when">Days 35–40<span>Go-live</span></div><div class="what"><b>Launch &amp; hyper-care</b><p>Go live and provide close support during the first weeks of real use.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INVESTMENT ================= -->
+<section style="background:var(--mint-soft);">
+  <div class="wrap">
+    <div class="eyebrow">Investment</div>
+    <h2 class="sec">The numbers, in KWD</h2>
+    <p class="sec-sub">Split into a one-time implementation fee and small recurring costs. Implementation and hosting figures are to be finalised by Centrix Plus; licence figures are Odoo's published rates.</p>
+
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Type</th><th class="r">Cost (KWD)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Implementation — setup, configuration &amp; data<small>2 VMs, Odoo install, Community (Sales/AR/AP), Enterprise HR, opening balances</small></td>
+          <td><span class="pill once">One-time</span></td>
+          <td class="r">KWD&nbsp;650</td>
+        </tr>
+        <tr>
+          <td>Integration &amp; consolidated reporting<small>Community ↔ Enterprise API sync + unified finance/HR report</small></td>
+          <td><span class="pill once">One-time</span></td>
+          <td class="r">KWD&nbsp;550</td>
+        </tr>
+        <tr>
+          <td>Accounting setup on Enterprise<small>Only if Option B (2 users) is selected</small></td>
+          <td><span class="pill once">One-time</span></td>
+          <td class="r">KWD&nbsp;300</td>
+        </tr>
+        <tr>
+          <td>Training &amp; go-live support<small>Role-based training, documentation, hyper-care</small></td>
+          <td><span class="pill once">One-time</span></td>
+          <td class="r">KWD&nbsp;300</td>
+        </tr>
+        <tr>
+          <td>Odoo Enterprise licence — Option A (1 user)<small>Custom plan, billed yearly · paid to Odoo</small></td>
+          <td><span class="pill rec">Recurring</span></td>
+          <td class="r">≈ KWD&nbsp;94.69&nbsp;/yr<small>≈ KWD 7.89 / month</small></td>
+        </tr>
+        <tr>
+          <td>Odoo Enterprise licence — Option B (2 users)<small>Custom plan, billed yearly · paid to Odoo</small></td>
+          <td><span class="pill rec">Recurring</span></td>
+          <td class="r">≈ KWD&nbsp;189.38&nbsp;/yr<small>≈ KWD 15.78 / month</small></td>
+        </tr>
+        <tr>
+          <td>Cloud hosting — 2 VMs<small>Self-hosted; monthly, billed by cloud provider</small></td>
+          <td><span class="pill rec">Recurring</span></td>
+          <td class="r">≈ KWD&nbsp;30<small>/ month</small></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">One-time total — Option A (1 user)</td>
+          <td class="r">KWD&nbsp;1,500</td>
+        </tr>
+        <tr>
+          <td colspan="2">One-time total — Option B (2 users) · recommended</td>
+          <td class="r">KWD&nbsp;1,800</td>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+    <p class="muted" style="font-size:12.5px;margin-top:14px;">Implementation is a one-time fee payable to Centrix Plus. The Odoo licence is purchased directly by the client from Odoo, and cloud hosting is billed directly by the cloud provider (estimate shown). All figures exclude any applicable taxes.</p>
+  </div>
+</section>
+
+<!-- ================= NOTES ================= -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Good to know</div>
+    <h2 class="sec">Assumptions &amp; notes</h2>
+    <div class="card">
+      <div class="note"><span class="n">1</span><div><b>Why two instances?</b> Odoo Enterprise is licensed per user. Running everyday, many-user work on free Community and keeping only HR/Accounting on Enterprise is what keeps your licence cost at 1–2 users.</div></div>
+      <div class="note"><span class="n">2</span><div><b>Community Accounting is basic.</b> Community offers Invoicing, not the full Accounting app. For correct double-entry books and statutory reports we recommend Option B (accountant on Enterprise).</div></div>
+      <div class="note"><span class="n">3</span><div><b>Custom plan is required.</b> Self-hosting and the external-API integration are only available on Odoo's Custom plan — not the cheaper Standard (Odoo-hosted) plan.</div></div>
+      <div class="note"><span class="n">4</span><div><b>The sync is near-real-time, not instant.</b> Data flows on a scheduled interval (e.g. every few minutes). This is normal and reliable for finance reporting.</div></div>
+      <div class="note"><span class="n">5</span><div><b>Hosting &amp; licence are pass-through.</b> Both are paid by the client directly to the cloud provider and to Odoo respectively. Centrix Plus sets them up and manages them on your behalf.</div></div>
+      <div class="note"><span class="n">6</span><div><b>Scope changes.</b> Additional apps (POS, Appointments, Marketing, etc.) or extra users can be added later and would be quoted separately.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Ready to start?</h2>
+      <p>On your approval we begin with discovery and have Virtus Dental live on Odoo 19 within 30–40 days. We recommend <b>Option B (2 users)</b> for correct accounting from day one.</p>
+      <div class="signs">
+        <div class="sign-box"><div class="ln"></div><small>For Virtus Dental — Name &amp; Signature</small></div>
+        <div class="sign-box"><div class="ln"></div><small>For Centrix Plus — Name &amp; Signature</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><img class="foot-logo" src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTE2MiAzMjAiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDp1cmwoI2xpbmVhci1ncmFkaWVudCk7fS5jbHMtMntmaWxsOnVybCgjTmV3X0dyYWRpZW50X1N3YXRjaF8xKTt9LmNscy0ze2ZpbGw6dXJsKCNsaW5lYXItZ3JhZGllbnQtMik7fS5jbHMtNHtmaWxsOnVybCgjbGluZWFyLWdyYWRpZW50LTMpO30uY2xzLTV7ZmlsbDp1cmwoI2xpbmVhci1ncmFkaWVudC00KTt9LmNscy02e2ZpbGw6IzA3OWU4Zjt9PC9zdHlsZT48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjQuMiIgeTE9IjEyMi41IiB4Mj0iMTc3LjE3IiB5Mj0iOTUuNzkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMDU2NzUiLz48c3RvcCBvZmZzZXQ9IjAuMTEiIHN0b3AtY29sb3I9IiMwNDViN2UiLz48c3RvcCBvZmZzZXQ9IjAuMyIgc3RvcC1jb2xvcj0iIzBlNjk5OCIvPjxzdG9wIG9mZnNldD0iMC41MyIgc3RvcC1jb2xvcj0iIzFlN2ZjMCIvPjxzdG9wIG9mZnNldD0iMC42MyIgc3RvcC1jb2xvcj0iIzExODZiZiIvPjxzdG9wIG9mZnNldD0iMC43MiIgc3RvcC1jb2xvcj0iIzAwOGZiZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwYWVhNyIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJOZXdfR3JhZGllbnRfU3dhdGNoXzEiIHgxPSIxLjEzIiB5MT0iMTM2LjA5IiB4Mj0iMTQzLjg2IiB5Mj0iMTM2LjA5IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDBhOGFhIi8+PHN0b3Agb2Zmc2V0PSIwLjE4IiBzdG9wLWNvbG9yPSIjMDZhMGIzIi8+PHN0b3Agb2Zmc2V0PSIwLjQ3IiBzdG9wLWNvbG9yPSIjMTc4YWNkIi8+PHN0b3Agb2Zmc2V0PSIwLjU3IiBzdG9wLWNvbG9yPSIjMWU4MWQ3Ii8+PHN0b3Agb2Zmc2V0PSIwLjY4IiBzdG9wLWNvbG9yPSIjMTE3Y2NjIi8+PHN0b3Agb2Zmc2V0PSIwLjc5IiBzdG9wLWNvbG9yPSIjMDA3NWJlIi8+PHN0b3Agb2Zmc2V0PSIwLjk5IiBzdG9wLWNvbG9yPSIjMDA2MzdjIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0yIiB4MT0iMTY0LjA3IiB5MT0iMjQ1LjgiIHgyPSIyMjguMzkiIHkyPSIyOTEuOTQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxZWFkOTYiLz48c3RvcCBvZmZzZXQ9IjAuMSIgc3RvcC1jb2xvcj0iIzI4YTk5OCIvPjxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iIzQxOWQ5ZCIgc3RvcC1vcGFjaXR5PSIwLjk5Ii8+PHN0b3Agb2Zmc2V0PSIwLjM1IiBzdG9wLWNvbG9yPSIjNGU5NzlmIiBzdG9wLW9wYWNpdHk9IjAuOTkiLz48c3RvcCBvZmZzZXQ9IjAuNDgiIHN0b3AtY29sb3I9IiM0MTkzOWMiIHN0b3Atb3BhY2l0eT0iMC45OSIvPjxzdG9wIG9mZnNldD0iMC42NCIgc3RvcC1jb2xvcj0iIzJhOGM5NyIvPjxzdG9wIG9mZnNldD0iMC45MSIgc3RvcC1jb2xvcj0iIzFlOThiNCIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMyIgeDE9IjE0Ni4yOSIgeTE9IjE3MS43NiIgeDI9IjMyNS4wNCIgeTI9IjExNy4wOSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzFlOTU4YiIvPjxzdG9wIG9mZnNldD0iMC4xMSIgc3RvcC1jb2xvcj0iIzI3OWI4YiIvPjxzdG9wIG9mZnNldD0iMC4yOSIgc3RvcC1jb2xvcj0iIzQxYWQ4YiIvPjxzdG9wIG9mZnNldD0iMC4zNiIgc3RvcC1jb2xvcj0iIzRlYjY4YiIvPjxzdG9wIG9mZnNldD0iMC41MiIgc3RvcC1jb2xvcj0iIzQxYWY4NCIvPjxzdG9wIG9mZnNldD0iMC43MiIgc3RvcC1jb2xvcj0iIzJhYTQ3OSIvPjxzdG9wIG9mZnNldD0iMC45OSIgc3RvcC1jb2xvcj0iIzAwNmQ3YyIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtNCIgeDE9IjE4MC4wOSIgeTE9IjYwLjA5IiB4Mj0iMzI3LjQ3IiB5Mj0iMTAyLjA0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDBhOThkIi8+PHN0b3Agb2Zmc2V0PSIwLjE4IiBzdG9wLWNvbG9yPSIjMDdhYzk2Ii8+PHN0b3Agb2Zmc2V0PSIwLjQ4IiBzdG9wLWNvbG9yPSIjMThiNWIwIi8+PHN0b3Agb2Zmc2V0PSIwLjU3IiBzdG9wLWNvbG9yPSIjMWViOGI4Ii8+PHN0b3Agb2Zmc2V0PSIwLjY4IiBzdG9wLWNvbG9yPSIjMTFiM2IzIi8+PHN0b3Agb2Zmc2V0PSIwLjc5IiBzdG9wLWNvbG9yPSIjMDBhY2FjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDBhMmE3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9Il82IiBkYXRhLW5hbWU9IjYiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE3Ni4xNi43NUg1OC4xUzE2LjM5LS42MywyLDUzYTI1LjY5LDI1LjY5LDAsMCwwLS44Niw2LjY0VjE2MC43NXMxLjY5LDQ0LjMyLDU2LjQzLDU3Ljg0aDYxLjY2cy01LjQxLTE5LDI0LjY0LTU1LjY4SDg2cy0yNS41NC0yLjkxLTI5LjMtMjYuMlY4OS4zOVM1NC4xLDY2LjY2LDgyLjIyLDU2LjIyYTMyLjksMzIuOSwwLDAsMSwxMS40MS0yaDIzLjkzbDEuMjEsMEMxMjMuMjEsNTQuMzMsMTU5LjI2LDUzLjU3LDE3Ni4xNi43NVoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik04OC42NSw1NC4yYy0zMS44MSw4LjMyLTMyLjE2LDMwLjY3LTMyLDM0LjYsMCwuNjksMCwxLjM4LDAsMi4wN3Y0Mi44YTIwLjkzLDIwLjkzLDAsMCwwLDEuODcsOC44MmM1LDEwLjc1LDE2Ljc5LDE2LjU1LDIzLjE2LDE5YTIxLjUsMjEuNSwwLDAsMCw3LjY4LDEuNDJoNTQuNDNjLTMwLjA1LDM2LjcyLTI0LjY0LDU1LjY4LTI0LjY0LDU1LjY4SDU5LjYzYTMyLjEzLDMyLjEzLDAsMCwxLTQuNi0uMzJDMy4zMiwyMTEsMS4xMywxNjAuNzUsMS4xMywxNjAuNzVWMTA5LjM3UzUuNjQsNDYuODEsODguNjUsNTQuMiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTI1MC43MywyMTguMzhzLTQzLjY4LTE0LjczLTY5LjU4LTEyLjctMzguNiwxMi43LTM4LjYsMTIuN1YzMjBjMzguMDctLjIyLDUwLjMyLTI4LjU1LDUzLjk1LTQxLjY5YTM5LjA5LDM5LjA5LDAsMCwwLDEuNDEtMTAuNDN2LTIzLjJhMjIuNDQsMjIuNDQsMCwwLDEsMTUtMjEuMTZjOC4yMy0yLjg5LDIwLjU0LTUuMDksMzYuMjktNS4wOSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTE0Mi4zNSwyMTguNTljNy41Mi01My4zMyw1Ni4zNC01NS41OSw1Ni4zNC01NS41OWgzN2ExOS45LDE5LjksMCwwLDAsNS43My0uODJjMzEuODktOS42NywzMC4xMi0zMi4yMywzMC4xMi0zMi4yM1Y4Ni4xNmEyOC40NywyOC40NywwLDAsMC0xLjkyLTEwLjQ5Yy03LjE2LTE4LTI4LjEzLTI0LjU5LTI4LjEzLTI0LjU5bC01NC44NC0uNzVDMjE2LjcyLDEzLjYxLDIxMCw1LjI2LDIxMCw1LjI2bDYxLjYtMS41YzU0Ljc0LDEzLjUyLDU1LjU4LDU0LjgzLDU1LjU4LDU0LjgzVjE2MC4zYTI4Ljc1LDI4Ljc1LDAsMCwxLS41Niw1Ljc4Yy02LjM5LDMwLjc3LTMyLjU3LDQ1LjE2LTQ0LjYsNTAuMjVhMjguODQsMjguODQsMCwwLDEtMTEuMjMsMi4yNkgxOTguNjljLTUyLjU4LDAtNTYuMzQsMTAxLjQxLTU2LjM0LDEwMS40MVYyMTguNTkiLz48cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik0yMzguNTEsMTYzYzM0LjkyLTkuMTMsMzMuMDUtMzMuMDUsMzMuMDUtMzMuMDVWODIuNjNjLTIuNy0xNC0xNi42Mi0yMS40Mi0yNC4yNi0yNC40N2EyNi4yNiwyNi4yNiwwLDAsMC04Ljg4LTEuODdMMTczLjksNTQuMDhDMjAxLjcsMjAuMjgsMTk4LjY5LDAsMTk4LjY5LDBsNjkuOS43M2EzNS44OSwzNS44OSwwLDAsMSw0Ljc1LjM1YzUxLjYyLDcuMzYsNTMuOCw1Ny41MSw1My44LDU3LjUxVjExMHMtNS42Myw2MC40My04OC42Myw1MyIvPjxwYXRoIGNsYXNzPSJjbHMtNiIgZD0iTTQ0Ni4yOCwxNTIuMDlhMjcuNjMsMjcuNjMsMCwwLDEtMi40NCwxMC43MiwzOS4yNCwzOS4yNCwwLDAsMS0yMSwyMC4zMiw0OCw0OCwwLDAsMS0xOC45NSwzLjQ3QTY2LDY2LDAsMCwxLDM4OC45MywxODVhNDEuODMsNDEuODMsMCwwLDEtMTIuMi00Ljg0LDQxLjEyLDQxLjEyLDAsMCwxLTEwLjA3LTguNjYsNTEuMTIsNTEuMTIsMCwwLDEtNy0xMC45Myw1Ni4zLDU2LjMsMCwwLDEtNC4zNS0xMi45LDcwLjEsNzAuMSwwLDAsMS0xLjQ1LTE0LjU3LDY0LjU1LDY0LjU1LDAsMCwxLDMuNjQtMjIuNDEsNDcuNzksNDcuNzksMCwwLDEsMTAuNDMtMTYuOTQsNDUuNDMsNDUuNDMsMCwwLDEsMTUuOTEtMTAuNzEsNTEuNTQsNTEuNTQsMCwwLDEsMTkuNDUtMy42OCw0OC41Miw0OC41MiwwLDAsMSwyMi40MSw1cTkuODIsNSwxNS4wNiwxMi40MXQ1LjI0LDE0YTkuMSw5LjEsMCwwLDEtMi41NSw2LjM2LDguMDcsOC4wNywwLDAsMS02LjE1LDIuNzZjLTIuNjksMC00LjctLjY0LTYuMDUtMS45MWEyNi41NSwyNi41NSwwLDAsMS00LjQ5LTYuNThxLTQuMS03LjctOS42NS0xMS41MmEyMy41MywyMy41MywwLDAsMC0xMy42OC0zLjgycS0xMi45NCwwLTIwLjYyLDkuODN0LTcuNjcsMjcuOTNxMCwxMi4wOSwzLjQsMjAuMTJhMjUuMzUsMjUuMzUsMCwwLDAsOS42MSwxMiwyNi41NywyNi41NywwLDAsMCwxNC41Nyw0cTksMCwxNS4zMS00LjQ5dDkuNDQtMTMuMTlhMjIuMjcsMjIuMjcsMCwwLDEsMy4zMi02LjY4cTItMi41OCw2LjM3LTIuNThhOC44OCw4Ljg4LDAsMCwxLDYuNDMsMi42MkE4LjcxLDguNzEsMCwwLDEsNDQ2LjI4LDE1Mi4wOVoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik01MTQuMjIsMTIzLjZINDgxLjF2MTcuODJoMzAuNDlhNy4zMiw3LjMyLDAsMCwxLDUsMS41MSw1LjE2LDUuMTYsMCwwLDEsMS42NSw0LDUuMzEsNS4zMSwwLDAsMS0xLjYzLDRxLTEuNjQsMS41Ni01LjA1LDEuNTZINDgxLjF2MjAuNjRoMzQuMjVhNy41LDcuNSwwLDAsMSw1LjIyLDEuNjEsNS40OSw1LjQ5LDAsMCwxLDEuNzYsNC4yOCw1LjM3LDUuMzcsMCwwLDEtMS43Niw0LjE4LDcuNDUsNy40NSwwLDAsMS01LjIyLDEuNjFINDc1LjQxYy0zLjIsMC01LjUxLS43MS02LjkxLTIuMTNzLTIuMS0zLjcxLTIuMS02Ljg4VjEyMS4yOGExMi4yMSwxMi4yMSwwLDAsMSwuOTQtNS4xOCw1Ljg3LDUuODcsMCwwLDEsMy0yLjkyLDEyLjM1LDEyLjM1LDAsMCwxLDUuMTItLjkxaDM4LjgxYTcuNTQsNy41NCwwLDAsMSw1LjIyLDEuNTYsNS44MSw1LjgxLDAsMCwxLDAsOC4yMUE3LjU0LDcuNTQsMCwwLDEsNTE0LjIyLDEyMy42WiIvPjxwYXRoIGNsYXNzPSJjbHMtNiIgZD0iTTU1Ni40MSwxMTkuODRsMjguMjcsNDIuNzdWMTE5LjQ0cTAtNC4yLDEuOC02LjMxYTYuMTEsNi4xMSwwLDAsMSw0Ljg4LTIuMSw2LjI5LDYuMjksMCwwLDEsNSwyLjFxMS44MywyLjEyLDEuODMsNi4zMXY1Ny4wOHEwLDkuNTQtNy45Miw5LjU1YTEwLjQzLDEwLjQzLDAsMCwxLTMuNTYtLjU3LDguOSw4LjksMCwwLDEtMy0xLjgxLDE3LjI0LDE3LjI0LDAsMCwxLTIuNTgtMi44OXEtMS4xOC0xLjY3LTIuMzctMy4zOWwtMjcuNTctNDIuMjd2NDIuNTFjMCwyLjc4LS42NSw0Ljg3LTEuOTQsNi4yOWE2Ljg0LDYuODQsMCwwLDEtOS45NCwwYy0xLjI2LTEuNDQtMS44OC0zLjUzLTEuODgtNi4yN3YtNTZhMTUuOCwxNS44LDAsMCwxLC43OS01LjU5LDcuODgsNy44OCwwLDAsMSwzLjEyLTMuNjQsOC40OSw4LjQ5LDAsMCwxLDQuNy0xLjQxLDcuNjMsNy42MywwLDAsMSw1Ljg2LDIuMzgsMTcuMiwxNy4yLDAsMCwxLDIuMTgsMi44MkM1NTQuODUsMTE3LjM4LDU1NS42MiwxMTguNTksNTU2LjQxLDExOS44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik02NjQuNjQsMTI0LjM5aC0xNnY1Mi43MnEwLDQuNTYtMiw2Ljc2YTcuNDEsNy40MSwwLDAsMS0xMC41NywwYy0xLjM3LTEuNDgtMi4wNi0zLjczLTIuMDYtNi43M1YxMjQuMzloLTE2cS0zLjc2LDAtNS42LTEuNjVhNS42NCw1LjY0LDAsMCwxLTEuODMtNC4zOCw1LjU2LDUuNTYsMCwwLDEsMS45MS00LjQ2LDguMjUsOC4yNSwwLDAsMSw1LjUyLTEuNjNoNDYuNzJxMy44MSwwLDUuNjcsMS42OGE1LjY2LDUuNjYsMCwwLDEsMS44Niw0LjQxLDUuNTgsNS41OCwwLDAsMS0xLjg4LDQuMzhRNjY4LjQsMTI0LjM5LDY2NC42NCwxMjQuMzlaIi8+PHBhdGggY2xhc3M9ImNscy02IiBkPSJNNzAzLjg3LDE1My44aC01LjE0djIzLjMxcTAsNC42LTIsNi43OGE2LjkzLDYuOTMsMCwwLDEtNS4zLDIuMTgsNi43Niw2Ljc2LDAsMCwxLTUuNDUtMi4yOGMtMS4yOC0xLjUyLTEuOTItMy43NC0xLjkyLTYuNjhWMTIxLjI4YzAtMy4xNy43LTUuNDYsMi4xMi02Ljg4czMuNzItMi4xMyw2Ljg4LTIuMTNoMjMuOTFhNzIuOTQsNzIuOTQsMCwwLDEsOC40Ny40MiwyMS4xOCwyMS4xOCwwLDAsMSw2LjMzLDEuNzEsMTguMjMsMTguMjMsMCwwLDEsNiw0LjEsMTgsMTgsMCwwLDEsNCw2LjIyLDIwLjY1LDIwLjY1LDAsMCwxLDEuMzcsNy40OXEwLDguMTMtNC41OCwxM3QtMTMuODksNi44OGEyNy4xLDI3LjEsMCwwLDEsNy40OCw2LjE0LDY2LjgzLDY2LjgzLDAsMCwxLDEwLjcxLDE2LjkxLDE2LjI4LDE2LjI4LDAsMCwxLDEuNTYsNS4wNyw1LjIxLDUuMjEsMCwwLDEtLjkxLDIuODUsNi40MSw2LjQxLDAsMCwxLTIuNSwyLjIyLDcuODMsNy44MywwLDAsMS0zLjY2LjgyLDcuMTYsNy4xNiwwLDAsMS00LjE2LTEuMTYsMTEuMTYsMTEuMTYsMCwwLDEtMi45LTIuOTVjLS44MS0xLjE5LTEuOS0yLjk0LTMuMjktNS4yNWwtNS44OS05LjhhNTMuNyw1My43LDAsMCwwLTUuNjctOC4yMSwxNCwxNCwwLDAsMC01LjA3LTMuODZBMTcuMzMsMTcuMzMsMCwwLDAsNzAzLjg3LDE1My44Wm04LjQyLTMwLjQ5SDY5OC43M3YxOS45NGgxMy4xNmEzNywzNywwLDAsMCw4LjkxLS45MSwxMC40MywxMC40MywwLDAsMCw1LjUyLTMuMTIsOSw5LDAsMCwwLDEuOTEtNi4wNiw5LjE4LDkuMTgsMCwwLDAtNS43OS04Ljc3UTcxOS44NiwxMjMuMzEsNzEyLjI5LDEyMy4zMVoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik03NjAuODcsMTc3LjExVjExOS45NHEwLTQuNDUsMi02LjY4YTYuNzcsNi43NywwLDAsMSw1LjI1LTIuMjMsNyw3LDAsMCwxLDUuMzcsMi4ycTIuMDYsMi4yLDIuMDUsNi43MXY1Ny4xN2MwLDMtLjY4LDUuMjUtMi4wNSw2LjczYTcsNywwLDAsMS01LjM3LDIuMjMsNi43Niw2Ljc2LDAsMCwxLTUuMjItMi4yNVE3NjAuODgsMTgxLjU3LDc2MC44NywxNzcuMTFaIi8+PHBhdGggY2xhc3M9ImNscy02IiBkPSJNNzkyLjU4LDE3MC43Miw4MDguODEsMTQ3bC0xMy42Ni0yMS4wOGE0Mi4yNyw0Mi4yNywwLDAsMS0yLjg5LTUuMjcsMTAuNDQsMTAuNDQsMCwwLDEtMS00LjIzLDQuOTEsNC45MSwwLDAsMSwxLjg2LTMuNzQsNi41Myw2LjUzLDAsMCwxLDQuNTMtMS42Niw2LjIyLDYuMjIsMCwwLDEsNC43NywxLjgxLDQ1LjE5LDQ1LjE5LDAsMCwxLDQuNzMsNi43bDEwLjg5LDE3LjYzLDExLjYzLTE3LjYzcTEuNDQtMi4yMiwyLjQ1LTMuODFhMjAuMjUsMjAuMjUsMCwwLDEsMi0yLjYyLDYuMzYsNi4zNiwwLDAsMSwyLjEtMS41Niw2LjU0LDYuNTQsMCwwLDEsMi43LS41Miw2LjMxLDYuMzEsMCwwLDEsNC41MywxLjY2LDUuMjMsNS4yMywwLDAsMSwxLjc2LDMuOTNxMCwzLjMxLTMuODIsOUw4MjcuMDgsMTQ3bDE1LjM5LDIzLjcxYTM4LjQxLDM4LjQxLDAsMCwxLDMsNS4xOCw5LjI5LDkuMjksMCwwLDEsLjk0LDMuODgsNi4xNiw2LjE2LDAsMCwxLS44NCwzLjE3LDYuMDUsNi4wNSwwLDAsMS0yLjM3LDIuMjgsNy4xMyw3LjEzLDAsMCwxLTMuNDcuODQsNi42NSw2LjY1LDAsMCwxLTMuNTEtLjg3LDcuMyw3LjMsMCwwLDEtMi4zMy0yLjE1Yy0uNTktLjg2LTEuNy0yLjUyLTMuMzItNUw4MTcuODIsMTU4bC0xMy41NiwyMC43Yy0xLjA2LDEuNjUtMS44MSwyLjgtMi4yNSwzLjQ2QTEzLjM5LDEzLjM5LDAsMCwxLDgwMC40LDE4NGE3LDcsMCwwLDEtMi4yMywxLjQ5LDcuNzYsNy43NiwwLDAsMS0zLC41NCw1Ljg0LDUuODQsMCwwLDEtNi4xOC02LjM5UTc4OSwxNzYsNzkyLjU4LDE3MC43MloiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik05MjcsMTU2LjU3SDkxMy41M3YyMC41NGMwLDIuOTQtLjcsNS4xNi0yLjA4LDYuNjhhNy4zMyw3LjMzLDAsMCwxLTEwLjYsMGMtMS4zNS0xLjUtMi0zLjcxLTItNi42MVYxMjEuMjhjMC0zLjI0Ljc1LTUuNTUsMi4yMy02LjkzczMuODUtMi4wOCw3LjA4LTIuMDhIOTI3YTQ5LjgsNDkuOCwwLDAsMSwxMi44NywxLjI4LDE5LjI4LDE5LjI4LDAsMCwxLDcuNyw0LjExLDE4LjU3LDE4LjU3LDAsMCwxLDQuOTIsNywyNC43OCwyNC43OCwwLDAsMSwxLjY4LDkuMzZxMCwxMS4wOC02LjgzLDE2LjhUOTI3LDE1Ni41N1ptLTMuNTYtMzMuMjZoLTkuOXYyMi4xN2g5LjlhMjkuMzgsMjkuMzgsMCwwLDAsOC42OC0xLjA5LDEwLjA2LDEwLjA2LDAsMCwwLDUuMzItMy41NiwxMC41OCwxMC41OCwwLDAsMCwxLjg0LTYuNDksMTEsMTEsMCwwLDAtMi44My03LjgyUTkzMy4yOCwxMjMuMzEsOTIzLjQzLDEyMy4zMVoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik05ODIuODcsMTE5Ljk0djUyLjgxaDI5LjhhNy44Myw3LjgzLDAsMCwxLDUuNDcsMS43NCw1LjYyLDUuNjIsMCwwLDEsMS45MSw0LjM1LDUuNDgsNS40OCwwLDAsMS0xLjg5LDQuMzMsOCw4LDAsMCwxLTUuNDksMS42Nkg5NzcuMThxLTQuOCwwLTYuOS0yLjEzYy0xLjQxLTEuNDEtMi4xMS0zLjcxLTIuMTEtNi44OFYxMTkuOTRxMC00LjQ1LDItNi42OGE2LjcyLDYuNzIsMCwwLDEsNS4yNy0yLjIzLDcsNywwLDAsMSw1LjM3LDIuMlE5ODIuODgsMTE1LjQ0LDk4Mi44NywxMTkuOTRaIi8+PHBhdGggY2xhc3M9ImNscy02IiBkPSJNMTAyNi43NywxNTQuODR2LTM0LjlxMC00LjQ1LDItNi42OGE2Ljc0LDYuNzQsMCwwLDEsNS4yNy0yLjIzLDYuOSw2LjksMCwwLDEsNS40MiwyLjIzcTIsMi4yMiwyLDYuNjh2MzUuNjlhMzIuNDYsMzIuNDYsMCwwLDAsMS4zNiwxMC4xNywxMS43NSwxMS43NSwwLDAsMCw0LjgyLDYuMzRjMi4zMSwxLjUsNS41NSwyLjI1LDkuNywyLjI1cTguNjMsMCwxMi4xOC00LjU4dDMuNTctMTMuODl2LTM2cTAtNC41LDItNi43MWE2Ljc3LDYuNzcsMCwwLDEsNS4zLTIuMiw3LDcsMCwwLDEsNS4zNywyLjJxMi4wNSwyLjIsMi4wNiw2LjcxdjM0LjlhNTEuNzksNTEuNzksMCwwLDEtMS42NiwxNC4yLDIxLjkzLDIxLjkzLDAsMCwxLTYuMjYsMTAsMjQuMzMsMjQuMzMsMCwwLDEtOS4yMSw1LjM1LDQwLjM3LDQwLjM3LDAsMCwxLTEyLjI4LDEuNjgsNTAuNDMsNTAuNDMsMCwwLDEtMTQuNC0xLjgxLDIzLDIzLDAsMCwxLTkuODUtNS41OSwyMi41MiwyMi41MiwwLDAsMS01LjU5LTkuN0E0OS4yNiw0OS4yNiwwLDAsMSwxMDI2Ljc3LDE1NC44NFoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik0xMTYwLjg3LDE2My4wNWEyMS4zLDIxLjMsMCwwLDEtMy4zOSwxMS44MywyMi41NiwyMi41NiwwLDAsMS05LjkzLDguMjIsMzcuMTksMzcuMTksMCwwLDEtMTUuNDksM3EtMTAuNzQsMC0xNy43Mi00LjA2YTIzLjYyLDIzLjYyLDAsMCwxLTgtNy43OSwxNy43NCwxNy43NCwwLDAsMS0zLjA5LTkuNDgsNi40NCw2LjQ0LDAsMCwxLDYuNTgtNi40OSw1LjYsNS42LDAsMCwxLDMuOTQsMS40OSwxMS42NywxMS42NywwLDAsMSwyLjc1LDQuNCwyOS4zMiwyOS4zMiwwLDAsMCwzLDUuNzksMTIuMTUsMTIuMTUsMCwwLDAsNC41MywzLjg0LDE2LjY5LDE2LjY5LDAsMCwwLDcuNjcsMS41MXE2LjU0LDAsMTAuNjItMy4wNWE5LjE0LDkuMTQsMCwwLDAsNC4wOC03LjU5LDgsOCwwLDAsMC0yLjItNS44NywxNC4yNCwxNC4yNCwwLDAsMC01LjY5LTMuNDRxLTMuNDktMS4xOS05LjMzLTIuNTJhNjgsNjgsMCwwLDEtMTMuMS00LjI5LDIxLjEzLDIxLjEzLDAsMCwxLTguMzYtNi42OCwxNy4zNCwxNy4zNCwwLDAsMS0zLjA5LTEwLjUyLDE4LDE4LDAsMCwxLDMuMjYtMTAuNjQsMjAuNjMsMjAuNjMsMCwwLDEsOS40Ni03LjE1LDM4LjYsMzguNiwwLDAsMSwxNC41NS0yLjUsMzUuOSwzNS45LDAsMCwxLDExLjU2LDEuNjYsMjQuMzksMjQuMzksMCwwLDEsOC4wOSw0LjQsMTguMzUsMTguMzUsMCwwLDEsNC43LDUuNzcsMTMuMzEsMTMuMzEsMCwwLDEsMS40OSw1Ljg5LDcsNywwLDAsMS0xLjg2LDQuNzMsNS45Myw1LjkzLDAsMCwxLTQuNjMsMi4xLDUuMzEsNS4zMSwwLDAsMS0zLjgzLTEuMjYsMTYuNzksMTYuNzksMCwwLDEtMi44NS00LjEzLDE4LjY2LDE4LjY2LDAsMCwwLTQuNzUtNi40MXEtMi43Ny0yLjMxLTguOTEtMi4zMWExNS40NCwxNS40NCwwLDAsMC05LjE4LDIuNXEtMy41LDIuNS0zLjQ5LDZhNi4wNSw2LjA1LDAsMCwwLDEuMTksMy43NiwxMCwxMCwwLDAsMCwzLjI2LDIuNzIsMjEuNDksMjEuNDksMCwwLDAsNC4yMSwxLjc4cTIuMTMuNjUsNywxLjg5QTEwOS40NiwxMDkuNDYsMCwwLDEsMTE0NSwxNDMuM2EzNCwzNCwwLDAsMSw4LjQ3LDQuMjEsMTcuMzUsMTcuMzUsMCwwLDEsNS40NCw2LjI2QTIwLjEyLDIwLjEyLDAsMCwxLDExNjAuODcsMTYzLjA1WiIvPjwvZz48L3N2Zz4=" alt="" />Centrix Plus · Odoo Implementation Partner</span>
+    <span>Proposal for Virtus Dental · <a href="https://www.virtusdental.com">virtusdental.com</a> · 31 May 2026</span>
+  </div>
+</footer>
+
+<script>
+  // staggered reveal on load
+  const blocks=document.querySelectorAll('section .wrap > *, .hero .wrap > *');
+  // lightweight: animate sections into view
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){e.target.classList.add('reveal');e.target.style.animationDelay=(i%4*0.06)+'s';io.unobserve(e.target);}
+    });
+  },{threshold:.08});
+  document.querySelectorAll('section .card, .arch, .plan, table, .timeline, .cta').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
