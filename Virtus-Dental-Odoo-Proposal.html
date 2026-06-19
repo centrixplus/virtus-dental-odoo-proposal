@@ -211,6 +211,25 @@
   .reveal{opacity:0;transform:translateY(18px);animation:rise .7s ease forwards;}
   @keyframes rise{to{opacity:1;transform:none;}}
 
+  /* ---- detailed scope inclusions / exclusions ---- */
+  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px;}
+  .incl{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);}
+  .incl-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .incl-no{flex:0 0 34px;height:34px;border-radius:10px;background:var(--petrol);color:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:600;}
+  .incl-head h4{font-size:16.5px;flex:1;line-height:1.15;}
+  .incl-tag{font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:999px;background:var(--mint);color:var(--petrol);white-space:nowrap;}
+  .incl-tag.opt{background:var(--gold-soft);color:#6b521d;}
+  .tick-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .tick-list li{font-size:13.5px;color:var(--ink);display:flex;gap:9px;align-items:flex-start;line-height:1.45;}
+  .tick-list li::before{content:"✓";color:var(--good);font-weight:700;flex:0 0 auto;}
+  .excl{background:#fbf3f1;border:1px solid #f0d9d3;border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);}
+  .excl h4{font-size:18px;color:#9a3b2e;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .cross-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;}
+  .cross-list li{font-size:13.5px;color:var(--muted);display:flex;gap:9px;align-items:flex-start;line-height:1.4;}
+  .cross-list li::before{content:"✕";color:#c0584a;font-weight:700;flex:0 0 auto;}
+  .pill.opt{background:var(--gold-soft);color:#6b521d;}
+  @media (max-width:760px){.incl-grid{grid-template-columns:1fr;}.cross-list{grid-template-columns:1fr;}}
+
   .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);}
   .table-scroll table{min-width:540px;}
 
@@ -450,15 +469,102 @@
 <section style="background:var(--mint-soft);">
   <div class="wrap">
     <div class="eyebrow">What we deliver</div>
-    <h2 class="sec">Scope of work</h2>
-    <p class="sec-sub">A complete, ready-to-use environment plus the training to run it confidently.</p>
-    <div class="grid g2">
-      <div class="card feature"><h4><span class="dot"></span>Infrastructure</h4><p>Provision &amp; harden 2 cloud VMs, install Odoo 19 (Community + Enterprise), SSL, daily automated backups.</p></div>
-      <div class="card feature"><h4><span class="dot"></span>Community setup</h4><p>Configure Sales, Customer Invoices (AR), Vendor Bills (AP), chart of accounts, taxes, products &amp; customers.</p></div>
-      <div class="card feature"><h4><span class="dot"></span>Enterprise setup</h4><p>Configure HR — employees, departments, contracts, leaves, attendances — plus Accounting (Option B).</p></div>
-      <div class="card feature"><h4><span class="dot"></span>Integration &amp; reporting</h4><p>Build the secure API sync so Community invoices flow into Enterprise Accounting, and a unified finance + HR report.</p></div>
-      <div class="card feature"><h4><span class="dot"></span>Data &amp; opening balances</h4><p>Import master data (customers, vendors, products, employees) and enter opening balances for a clean start.</p></div>
-      <div class="card feature"><h4><span class="dot"></span>Training &amp; go-live</h4><p>Role-based training for front-desk, HR &amp; accounting, documentation, and post-launch hyper-care support.</p></div>
+    <h2 class="sec">Scope of work — what's included</h2>
+    <p class="sec-sub">A complete, ready-to-use environment plus the training to run it confidently. Every line item below is included in the quoted price.</p>
+
+    <div class="incl-grid">
+
+      <div class="incl">
+        <div class="incl-head"><span class="incl-no">1</span><h4>Infrastructure &amp; installation</h4><span class="incl-tag">Implementation</span></div>
+        <ul class="tick-list">
+          <li>Provision &amp; configure 2 cloud VMs (Community + Enterprise)</li>
+          <li>OS setup, security hardening &amp; firewall</li>
+          <li>Install Odoo 19 Community (VM 1) and Enterprise (VM 2)</li>
+          <li>SSL / HTTPS certificates for both instances</li>
+          <li>Database setup + daily automated backups</li>
+          <li>Basic performance tuning</li>
+        </ul>
+      </div>
+
+      <div class="incl">
+        <div class="incl-head"><span class="incl-no">2</span><h4>Odoo Community — Operations</h4><span class="incl-tag">Implementation</span></div>
+        <ul class="tick-list">
+          <li>Company profile, unlimited users &amp; access rights</li>
+          <li>Sales: quotations, sales orders, customer management</li>
+          <li>Customer Invoices (Accounts Receivable)</li>
+          <li>Vendor Bills (Accounts Payable)</li>
+          <li>Products / services catalogue</li>
+          <li>Basic chart of accounts, taxes &amp; contacts</li>
+        </ul>
+      </div>
+
+      <div class="incl">
+        <div class="incl-head"><span class="incl-no">3</span><h4>Odoo Enterprise — HR</h4><span class="incl-tag">Implementation</span></div>
+        <ul class="tick-list">
+          <li>Employee database, departments &amp; job positions</li>
+          <li>Contracts</li>
+          <li>Time-off / leave management</li>
+          <li>Attendances</li>
+          <li>Employee documents</li>
+          <li>Payroll-ready configuration (if required)</li>
+        </ul>
+      </div>
+
+      <div class="incl">
+        <div class="incl-head"><span class="incl-no">4</span><h4>Accounting setup on Enterprise</h4><span class="incl-tag opt">Option B</span></div>
+        <ul class="tick-list">
+          <li>Full Accounting app configuration</li>
+          <li>Complete chart of accounts (Kuwait-appropriate)</li>
+          <li>Tax configuration</li>
+          <li>Bank &amp; cash journals + bank reconciliation</li>
+          <li>Customer / vendor payments &amp; follow-ups</li>
+          <li>P&amp;L, Balance Sheet, Cash Flow, Aged reports</li>
+        </ul>
+      </div>
+
+      <div class="incl">
+        <div class="incl-head"><span class="incl-no">5</span><h4>Integration &amp; consolidated reporting</h4><span class="incl-tag">Implementation</span></div>
+        <ul class="tick-list">
+          <li>Secure API connection between Community ↔ Enterprise</li>
+          <li>Auto-sync of Community invoices / AR / AP into Enterprise Accounting as journal entries</li>
+          <li>Scheduled sync (near real-time)</li>
+          <li>One unified report combining Finance + HR</li>
+          <li>Testing &amp; validation of synced data</li>
+        </ul>
+      </div>
+
+      <div class="incl">
+        <div class="incl-head"><span class="incl-no">6</span><h4>Data migration &amp; opening balances</h4><span class="incl-tag">Implementation</span></div>
+        <ul class="tick-list">
+          <li>Import master data: customers, vendors, products, employees</li>
+          <li>Enter opening balances for a clean go-live</li>
+        </ul>
+      </div>
+
+      <div class="incl">
+        <div class="incl-head"><span class="incl-no">7</span><h4>Training &amp; go-live support</h4><span class="incl-tag">Implementation</span></div>
+        <ul class="tick-list">
+          <li>Role-based training: front desk, HR &amp; accounting</li>
+          <li>User documentation / quick guides</li>
+          <li>Go-live support</li>
+          <li>Hyper-care during the first weeks of live use</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="excl">
+      <h4><span class="dot"></span>Not included (exclusions)</h4>
+      <ul class="cross-list">
+        <li>Odoo Enterprise licence fees — paid directly to Odoo</li>
+        <li>Cloud hosting / VM fees — paid directly to the provider</li>
+        <li>Additional apps (POS, Appointments, Website, eCommerce, Marketing) — quoted separately</li>
+        <li>Custom module development beyond the stated integration</li>
+        <li>Hardware</li>
+        <li>Source-data cleansing</li>
+        <li>Ongoing AMC after hyper-care — optional (see Investment)</li>
+        <li>Any applicable taxes / VAT</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -527,6 +633,11 @@
           <td><span class="pill rec">Recurring</span></td>
           <td class="r">≈ KWD&nbsp;30<small>/ month</small></td>
         </tr>
+        <tr>
+          <td>Annual Maintenance &amp; Support (AMC)<small>Optional · version updates, backup monitoring, bug fixes, priority support</small></td>
+          <td><span class="pill opt">Optional</span></td>
+          <td class="r">≈ KWD&nbsp;300<small>/ year</small></td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
@@ -540,7 +651,7 @@
       </tfoot>
     </table>
     </div>
-    <p class="muted" style="font-size:12.5px;margin-top:14px;">Implementation is a one-time fee payable to Centrix Plus. The Odoo licence is purchased directly by the client from Odoo, and cloud hosting is billed directly by the cloud provider (estimate shown). All figures exclude any applicable taxes.</p>
+    <p class="muted" style="font-size:12.5px;margin-top:14px;">Implementation is a one-time fee payable to Centrix Plus. The Odoo licence is purchased directly by the client from Odoo, and cloud hosting is billed directly by the cloud provider (estimate shown). Annual Maintenance &amp; Support (AMC) is optional and begins after the go-live hyper-care period. All figures exclude any applicable taxes.</p>
   </div>
 </section>
 
