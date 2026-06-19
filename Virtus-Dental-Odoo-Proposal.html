@@ -230,6 +230,29 @@
   .pill.opt{background:var(--gold-soft);color:#6b521d;}
   @media (max-width:760px){.incl-grid{grid-template-columns:1fr;}.cross-list{grid-template-columns:1fr;}}
 
+  /* ---- scope boundaries + payment terms ---- */
+  .boundary{margin-top:22px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);}
+  .boundary > h3{font-size:20px;color:var(--petrol);margin-bottom:6px;}
+  .boundary > .bsub{font-size:13.5px;color:var(--muted);margin-bottom:18px;}
+  .bgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .bcard{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px;}
+  .bcard h4{font-size:16px;margin-bottom:6px;}
+  .bnote{font-size:12.5px;color:var(--muted);font-style:italic;margin-bottom:12px;}
+  .binc,.bexc{font-size:13.5px;line-height:1.5;margin-top:10px;}
+  .binc{color:var(--ink);}
+  .binc b{color:var(--good);}
+  .bexc{color:var(--muted);}
+  .bexc b{color:#c0584a;}
+  .kw-callout{margin-top:18px;background:#fbf3f1;border:1px solid #f0d9d3;border-left:4px solid #c0584a;border-radius:10px;padding:16px 18px;font-size:14px;color:#7a3225;line-height:1.55;}
+  .kw-callout b{color:#9a3b2e;}
+  .payterms{margin-top:18px;background:var(--mint-soft);border:1px solid var(--mint);border-radius:14px;padding:18px 22px;}
+  .payterms h4{font-size:16px;color:var(--petrol);margin-bottom:10px;}
+  .payterms ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .payterms li{font-size:13.5px;display:flex;gap:9px;align-items:flex-start;line-height:1.45;}
+  .payterms li::before{content:"▸";color:var(--gold);font-weight:700;flex:0 0 auto;}
+  .payterms li b{color:var(--ink);}
+  @media (max-width:760px){.bgrid{grid-template-columns:1fr;}}
+
   .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);}
   .table-scroll table{min-width:540px;}
 
@@ -506,7 +529,7 @@
           <li>Time-off / leave management</li>
           <li>Attendances</li>
           <li>Employee documents</li>
-          <li>Payroll-ready configuration (if required)</li>
+          <li>Org chart &amp; standard HR dashboards</li>
         </ul>
       </div>
 
@@ -559,12 +582,35 @@
         <li>Odoo Enterprise licence fees — paid directly to Odoo</li>
         <li>Cloud hosting / VM fees — paid directly to the provider</li>
         <li>Additional apps (POS, Appointments, Website, eCommerce, Marketing) — quoted separately</li>
+        <li>Kuwait Labour Law, payroll, payslips/WPS & end-of-service (indemnity) — separate quote</li>
         <li>Custom module development beyond the stated integration</li>
         <li>Hardware</li>
-        <li>Source-data cleansing</li>
+        <li>Source-data cleansing or reconstruction of historical data</li>
         <li>Ongoing AMC after hyper-care — optional (see Investment)</li>
         <li>Any applicable taxes / VAT</li>
       </ul>
+    </div>
+
+    <div class="boundary">
+      <h3>Important — scope boundaries (please read)</h3>
+      <p class="bsub">Delivered exactly as Odoo 19 provides out of the box. No custom modules, no Python development.</p>
+      <div class="bgrid">
+        <div class="bcard">
+          <h4>HR — Basic HR only (standard Odoo 19)</h4>
+          <p class="bnote">Standard Odoo 19 HR, as-is.</p>
+          <div class="binc"><b>Included:</b> employee records, departments &amp; job positions, basic contracts, Time Off / leaves, attendances, employee documents, org chart and standard HR reports.</div>
+          <div class="bexc"><b>NOT included:</b> Kuwait Labour Law, payroll / payslips / WPS, end-of-service (indemnity) calculation, recruitment, appraisals, expenses, fleet, custom salary rules or workflows, and biometric / attendance-device integration.</div>
+        </div>
+        <div class="bcard">
+          <h4>Accounting — standard Odoo 19 only</h4>
+          <p class="bnote">Standard invoice &amp; purchase processes, as-is.</p>
+          <div class="binc"><b>We provide:</b> setup of chart of accounts, taxes &amp; journals; training on the standard Customer Invoice (AR) and Vendor Bill / Purchase (AP) processes; standard Odoo financial reports.</div>
+          <div class="bexc"><b>Client provides the opening balances</b> (trial balance, outstanding AR/AP, bank &amp; cash). We enter standard opening balances from what you supply — we do not reconstruct or clean historical data. No custom reports, workflows or modules.</div>
+        </div>
+      </div>
+      <div class="kw-callout">
+        <b>Kuwait Labour Law is NOT included in this quotation.</b> If you require Kuwait Labour Law applied (leave entitlements, working hours, overtime, end-of-service / indemnity formula, public holidays, probation, etc.), you must provide <b>all the policies you want implemented, in writing</b>. We will then issue a <b>separate quotation</b> for it. It is not part of this scope.
+      </div>
     </div>
   </div>
 </section>
@@ -601,22 +647,22 @@
         <tr>
           <td>Implementation — setup, configuration &amp; data<small>2 VMs, Odoo install, Community (Sales/AR/AP), Enterprise HR, opening balances</small></td>
           <td><span class="pill once">One-time</span></td>
-          <td class="r">KWD&nbsp;650</td>
+          <td class="r">KWD&nbsp;1,200</td>
         </tr>
         <tr>
           <td>Integration &amp; consolidated reporting<small>Community ↔ Enterprise API sync + unified finance/HR report</small></td>
           <td><span class="pill once">One-time</span></td>
-          <td class="r">KWD&nbsp;550</td>
+          <td class="r">KWD&nbsp;1,000</td>
         </tr>
         <tr>
           <td>Accounting setup on Enterprise<small>Only if Option B (2 users) is selected</small></td>
           <td><span class="pill once">One-time</span></td>
-          <td class="r">KWD&nbsp;300</td>
+          <td class="r">KWD&nbsp;500</td>
         </tr>
         <tr>
           <td>Training &amp; go-live support<small>Role-based training, documentation, hyper-care</small></td>
           <td><span class="pill once">One-time</span></td>
-          <td class="r">KWD&nbsp;300</td>
+          <td class="r">KWD&nbsp;500</td>
         </tr>
         <tr>
           <td>Odoo Enterprise licence — Option A (1 user)<small>Custom plan, billed yearly · paid to Odoo</small></td>
@@ -636,22 +682,31 @@
         <tr>
           <td>Annual Maintenance &amp; Support (AMC)<small>Optional · version updates, backup monitoring, bug fixes, priority support</small></td>
           <td><span class="pill opt">Optional</span></td>
-          <td class="r">≈ KWD&nbsp;300<small>/ year</small></td>
+          <td class="r">≈ KWD&nbsp;480<small>/ year</small></td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="2">One-time total — Option A (1 user)</td>
-          <td class="r">KWD&nbsp;1,500</td>
+          <td class="r">KWD&nbsp;2,700</td>
         </tr>
         <tr>
           <td colspan="2">One-time total — Option B (2 users) · recommended</td>
-          <td class="r">KWD&nbsp;1,800</td>
+          <td class="r">KWD&nbsp;3,200</td>
         </tr>
       </tfoot>
     </table>
     </div>
     <p class="muted" style="font-size:12.5px;margin-top:14px;">Implementation is a one-time fee payable to Centrix Plus. The Odoo licence is purchased directly by the client from Odoo, and cloud hosting is billed directly by the cloud provider (estimate shown). Annual Maintenance &amp; Support (AMC) is optional and begins after the go-live hyper-care period. All figures exclude any applicable taxes.</p>
+
+    <div class="payterms">
+      <h4>Payment terms &amp; change requests</h4>
+      <ul>
+        <li><b>Payment milestones:</b> 50% advance to commence · 40% at user acceptance (UAT) · 10% at go-live. Work begins on receipt of the advance.</li>
+        <li><b>Change requests:</b> any work outside this written scope is quoted and signed off separately before it begins (change order).</li>
+        <li><b>Quotation validity:</b> 30 days from the date of this proposal.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
